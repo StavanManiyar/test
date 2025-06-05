@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_css %}
+<link href="{% static 'css/aboutSchool.css' %}" rel='stylesheet' type='text/css'>
+{% endblock page_css %}
+
+{% block content %}
+<!-- Page Header -->
+<div class="about-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="page-title"><i class="fa fa-school"></i> About Our School</h1>
+        <div class="title-underline"></div>
+        <p class="lead">Building Character, Creating Futures</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- About Section -->
+<section class="about-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="about-content">
+          <h2>Our Legacy of Excellence</h2>
+          <div class="section-underline"></div>
+          <p>Founded in 1956, Kapadia High School has been a cornerstone of educational excellence for over six decades. Our institution has consistently maintained high academic standards while nurturing the holistic development of our students.</p>
+          <p>At Kapadia High School, we believe in creating an environment where students can discover their potential, develop their skills, and grow into responsible citizens who contribute positively to society.</p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="about-image-container">
+          <img src="{% static 'image/about-school.jpg' %}" alt="School Building" class="img-fluid about-image">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mission & Vision Section -->
+<section class="mission-vision-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="mission-card">
+          <div class="mission-icon">
+            <i class="fa fa-bullseye"></i>
+          </div>
+          <h3>Our Mission</h3>
+          <div class="card-underline"></div>
+          <p>To provide quality education that develops intellectual curiosity, critical thinking, and a lifelong love for learning in a nurturing and inclusive environment.</p>
+          <ul class="mission-points">
+            <li><i class="fa fa-check-circle"></i> Academic Excellence</li>
+            <li><i class="fa fa-check-circle"></i> Character Development</li>
+            <li><i class="fa fa-check-circle"></i> Community Engagement</li>
+            <li><i class="fa fa-check-circle"></i> Inclusive Education</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="vision-card">
+          <div class="vision-icon">
+            <i class="fa fa-eye"></i>
+          </div>
+          <h3>Our Vision</h3>
+          <div class="card-underline"></div>
+          <p>To be recognized as a premier educational institution that empowers students to become global citizens who are intellectually competent, morally upright, and socially responsible.</p>
+          <ul class="vision-points">
+            <li><i class="fa fa-lightbulb"></i> Innovative Learning</li>
+            <li><i class="fa fa-lightbulb"></i> Global Perspective</li>
+            <li><i class="fa fa-lightbulb"></i> Ethical Leadership</li>
+            <li><i class="fa fa-lightbulb"></i> Sustainable Development</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Our Approach Section -->
+<section class="about-section bg-section">
+  <div class="container">
+    <h2 class="section-title text-center">Our Educational Approach</h2>
+    <div class="section-divider mx-auto"></div>
+    <div class="row mt-5">
+      <div class="col-md-4 mb-4">
+        <div class="approach-card">
+          <div class="approach-icon">
+            <i class="fa fa-book"></i>
+          </div>
+          <h3>Academic Excellence</h3>
+          <p>Our co-educational, English-medium curriculum is meticulously designed to foster critical thinking, creativity, and leadership. Guided by a team of dedicated teachers, students receive a robust academic education.</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="approach-card">
+          <div class="approach-icon">
+            <i class="fa fa-heart"></i>
+          </div>
+          <h3>Character Development</h3>
+          <p>We believe in nurturing not just intelligent minds but also compassionate hearts. Our students learn values like integrity, respect, and responsibility that help them become well-rounded individuals.</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="approach-card">
+          <div class="approach-icon">
+            <i class="fa fa-globe"></i>
+          </div>
+          <h3>Global Perspective</h3>
+          <p>The diverse student body represents a multitude of cultures and perspectives, creating a rich tapestry of experiences that enriches the learning journey and prepares students for a global future.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Legacy Section -->
+<section class="about-section" style="padding-bottom: 0; margin-bottom: 0;">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+        <div class="about-image-container">
+          <img src="https://media.istockphoto.com/id/1369754239/photo/university-student-in-white-background-stock-photo.jpg?s=612x612&w=0&k=20&c=LjFVDfjusWBjYTNliHV9DyXfApPGc8DmgBGEtfVgQ0Q="
+            alt="Students" class="img-fluid about-image">
+        </div>
+      </div>
+      <div class="col-lg-6 order-lg-1">
+        <div class="about-content">
+          <h2 class="section-title">Our Legacy & Future</h2>
+          <div class="section-divider"></div>
+          <p>With a sprawling campus that houses state-of-the-art facilities, H.B. Kapadia High School offers a dynamic and engaging environment where students are encouraged to explore their talents and pursue their ambitions.</p>
+          <p>Graduates of our school carry its legacy with them, spreading their wings across the globe and contributing positively to society. As we continue to grow and evolve, we remain steadfast in our mission to inspire and empower the next generation of leaders, thinkers, and innovators.</p>
+          <p>H.B. Kapadia High School is not just an institution; it is a nurturing community where every student is valued, every achievement is celebrated, and every dream is given the wings to soar.</p>
+          <a href="#" class="btn btn-cta mt-3">Explore Our Campuses</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Styles moved to external CSS file: aboutSchool.css -->
+
+{% endblock content %}

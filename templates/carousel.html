@@ -1,0 +1,179 @@
+{% load static %}
+<link href="{% static 'css/carousel.css' %}" rel='stylesheet' type='text/css'>
+
+<!-- Preload CSS to ensure faster loading -->
+<style>
+  /* Preload styling for carousel images */
+  .preload-carousel-images {
+    position: absolute; 
+    width: 1px; 
+    height: 1px; 
+    opacity: 0; 
+    z-index: -1;
+  }
+  
+  /* Prevent layout shifts during image loading */
+  .carousel-container {
+    min-height: 500px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Ensure the carousel maintains its dimensions before images load */
+  #homeCarousel {
+    height: 100%;
+  }
+  
+  /* Prevent footer jump during page load */
+  body {
+    overflow-y: scroll; /* Always show scrollbar to prevent layout shifts */
+  }
+</style>
+
+<div class="carousel-container" id="home-carousel-container" style="display: block !important; visibility: visible !important;">
+  <!-- Carousel Indicators -->
+  <div id="homeCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      {% for image in carousel_images %}
+        <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active" aria-current="true"{% endif %} aria-label="Slide {{ forloop.counter }}"></button>
+      {% empty %}
+        <!-- Default indicators if no images in database -->
+        <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      {% endfor %}
+    </div>
+    
+    <!-- Carousel Items -->
+    <div class="carousel-inner">
+      {% for image in carousel_images %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+          <div class="carousel-image-container">
+            {% if image.get_image_url %}
+              <img src="{{ image.get_image_url }}" class="carousel-image" alt="{{ image.title }}" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" crossorigin="anonymous" fetchpriority="{% if forloop.first %}high{% else %}low{% endif %}">
+            {% else %}
+              <img src="{% static 'images/placeholder.jpg' %}" class="carousel-image" alt="Placeholder" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" fetchpriority="{% if forloop.first %}high{% else %}low{% endif %}">
+            {% endif %}
+          </div>
+          <div class="carousel-caption">
+            <h2>{{ image.title }}</h2>
+            <p>{{ image.subtitle }}</p>
+            {% if image.button_text and image.button_link %}
+              <a href="{{ image.button_link }}" class="btn carousel-btn">{{ image.button_text }}</a>
+            {% endif %}
+          </div>
+        </div>
+      {% empty %}
+        <!-- Default carousel items if no images in database -->
+        <div class="carousel-item active">
+          <div class="carousel-image-container">
+            <img src="{% static 'images/placeholder.jpg' %}" class="carousel-image" alt="School Campus" loading="eager">
+          </div>
+          <div class="carousel-caption">
+            <h2>Welcome to Kapadia High School</h2>
+            <p>Nurturing Excellence Since 1956</p>
+            <a href="{% url 'aboutSchool' %}" class="btn carousel-btn">Learn More</a>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-image-container">
+            <img src="{% static 'images/placeholder.jpg' %}" class="carousel-image" alt="Students" loading="eager">
+          </div>
+          <div class="carousel-caption">
+            <h2>Excellence in Education</h2>
+            <p>Developing Future Leaders</p>
+            <a href="#" class="btn carousel-btn">Our Programs</a>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="carousel-image-container">
+            <img src="{% static 'images/placeholder.jpg' %}" class="carousel-image" alt="School Activities" loading="eager">
+          </div>
+          <div class="carousel-caption">
+            <h2>Holistic Development</h2>
+            <p>Academic Excellence and Beyond</p>
+            <a href="{% url 'gallery' %}" class="btn carousel-btn">View Gallery</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    
+    <!-- Standard Bootstrap Carousel Controls -->
+    <a class="carousel-control-prev" href="#homeCarousel" role="button" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#homeCarousel" role="button" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </a>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Preload all carousel images to prevent delayed loading
+    function preloadCarouselImages() {
+      var carouselImages = document.querySelectorAll('.carousel-image');
+      var preloadDiv = document.createElement('div');
+      preloadDiv.className = 'preload-carousel-images';
+      document.body.appendChild(preloadDiv);
+      
+      carouselImages.forEach(function(img) {
+        var imgSrc = img.getAttribute('src');
+        if (imgSrc) {
+          var preloadImg = new Image();
+          preloadImg.src = imgSrc;
+          preloadDiv.appendChild(preloadImg);
+        }
+      });
+    }
+    
+    // Call preload function
+    preloadCarouselImages();
+    
+    // Initialize carousel with proper options
+    var carousel = document.querySelector('#homeCarousel');
+    var carouselInstance = new bootstrap.Carousel(carousel, {
+      interval: 5000,  // Auto-slide every 5 seconds
+      wrap: true,       // Loop back to first slide
+      keyboard: true,   // Allow keyboard navigation
+      pause: false      // Don't pause on hover
+    });
+    
+    // Fix for Supabase images
+    var carouselImages = document.querySelectorAll('.carousel-image');
+    carouselImages.forEach(function(img) {
+      // Add loading="eager" to prioritize loading
+      img.setAttribute('loading', 'eager');
+      
+      // Add a placeholder background color while loading
+      img.style.backgroundColor = '#003264';
+      
+      // Apply styles immediately instead of waiting for onload
+      img.style.position = 'absolute';
+      img.style.top = '50%';
+      img.style.left = '50%';
+      img.style.transform = 'translate(-50%, -50%)';
+      img.style.minWidth = '100%';
+      img.style.minHeight = '100%';
+      img.style.width = 'auto';
+      img.style.height = 'auto';
+      img.style.objectFit = 'cover';
+      
+      // Handle image loading
+      img.onload = function() {
+        // Just update opacity when loaded
+        this.style.opacity = '1';
+      };
+      
+      // Handle loading errors
+      img.onerror = function() {
+        // If image fails to load, replace with placeholder
+        if (!img.src.includes('placeholder.jpg')) {
+          img.src = '{% static "images/placeholder.jpg" %}';
+        }
+      };
+    });
+  });
+</script>

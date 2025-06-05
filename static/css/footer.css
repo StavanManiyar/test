@@ -1,0 +1,89 @@
+/* Footer Styles - Content styling only */
+/* Note: Positioning is handled by sticky-footer.css */
+.footer {
+  background-color: #003264;
+  color: white;
+  padding: 40px 0 20px;
+}
+
+/* Footer columns */
+.footer-col {
+  width: 25%;
+  padding: 0 15px;
+  flex: 1 1 25%;
+  min-width: 200px;
+}
+
+.footer-col h4 {
+  font-size: 18px;
+  color: #ffcc00;
+  margin-bottom: 20px;
+  font-weight: 500;
+  position: relative;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  font-size: 16px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #ffcc00;
+  padding-left: 8px;
+}
+
+/* Social links */
+.footer-col .social-links a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover {
+  color: #003264;
+  background-color: #ffcc00;
+}
+
+/* School details */
+.school-details {
+  margin-bottom: 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  word-wrap: break-word;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .footer-col {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 574px) {
+  .footer-col {
+    width: 100%;
+  }
+}

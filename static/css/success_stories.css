@@ -1,0 +1,334 @@
+/* Success Stories Page Styles */
+
+/* Page Header Styles */
+.success-header {
+    background-color: #003264;
+    color: #ffffff;
+    padding: 60px 0;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #F4C430;
+}
+
+.page-title {
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+}
+
+.title-underline {
+    height: 3px;
+    width: 80px;
+    background-color: #F4C430;
+    margin: 0 auto 20px;
+}
+
+.success-header .lead {
+    color: #ffffff;
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Introduction Section Styles */
+.intro-section {
+    padding: 20px 0 50px;
+}
+
+.intro-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.intro-content p {
+    color: #495057;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* Alumni Section Styles */
+.alumni-section {
+    padding: 60px 0;
+    background-color: #f8f9fa;
+}
+
+.section-title {
+    color: #003264;
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 2.2rem;
+}
+
+.section-underline {
+    height: 3px;
+    width: 60px;
+    background-color: #F4C430;
+    margin: 0 auto 20px;
+}
+
+.section-description {
+    color: #6c757d;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.alumni-card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.alumni-card:hover {
+    transform: translateY(-5px);
+}
+
+.alumni-image {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.alumni-image img {
+    width: 100%;
+    max-width: 150px;
+    border: 4px solid #f8f9fa;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.alumni-info h3 {
+    color: #003264;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.alumni-year {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.alumni-profession {
+    color: #003264;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.alumni-underline {
+    height: 2px;
+    width: 50px;
+    background-color: #dee2e6;
+    margin-bottom: 15px;
+}
+
+.alumni-info p {
+    color: #495057;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.alumni-quote {
+    background-color: #f8f9fa;
+    border-left: 3px solid #F4C430;
+    padding: 12px 15px;
+    font-style: italic;
+    color: #495057;
+    font-size: 0.9rem;
+}
+
+.alumni-quote i {
+    color: #F4C430;
+    margin-right: 5px;
+}
+
+/* Achievements Section Styles */
+.achievements-section {
+    padding: 60px 0;
+}
+
+.achievement-card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.achievement-card:hover {
+    transform: translateY(-5px);
+}
+
+.achievement-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.achievement-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #003264;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.achievement-icon i {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.achievement-header h3 {
+    color: #003264;
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.achievement-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.achievement-list li {
+    border-bottom: 1px solid #e9ecef;
+    padding: 15px 0;
+}
+
+.achievement-list li:last-child {
+    border-bottom: none;
+}
+
+.achievement-title {
+    color: #003264;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.achievement-details {
+    color: #6c757d;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Share Your Story Section Styles */
+.share-section {
+    background-color: #003264;
+    color: #fff;
+    padding: 50px 0;
+    margin-top: 40px;
+}
+
+.share-section h2 {
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.share-section p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+    opacity: 0.9;
+}
+
+.share-btn {
+    background-color: #F4C430;
+    color: #003264;
+    border: none;
+    padding: 12px 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.share-btn:hover {
+    background-color: #e5b52b;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .alumni-image {
+        margin-bottom: 20px;
+    }
+    
+    .alumni-image img {
+        max-width: 120px;
+    }
+    
+    .share-section {
+        text-align: center;
+    }
+    
+    .share-btn {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .alumni-card {
+        margin-bottom: 30px;
+    }
+    
+    .alumni-info h3 {
+        font-size: 1.3rem;
+    }
+    
+    .achievement-header h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .success-header {
+        padding: 40px 0;
+    }
+    
+    .page-title {
+        font-size: 1.8rem;
+    }
+    
+    .intro-content {
+        padding: 20px;
+    }
+    
+    .alumni-card, .achievement-card {
+        padding: 15px;
+    }
+    
+    .achievement-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .achievement-icon i {
+        font-size: 1.2rem;
+    }
+}

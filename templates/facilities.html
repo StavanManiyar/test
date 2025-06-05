@@ -1,0 +1,509 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Facilities - Kapadia High School{% endblock %}
+
+{% block page_css %}
+<link href="{% static 'css/facilities.css' %}" rel='stylesheet' type='text/css'>
+{% endblock page_css %}
+
+{% block content %}
+<!-- Page Header -->
+<div class="facilities-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="page-title"><i class="fa fa-building"></i> Our Facilities</h1>
+        <div class="title-underline"></div>
+        <p class="lead">State-of-the-art Infrastructure for Holistic Development</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Introduction Section -->
+<section class="intro-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="intro-content">
+          <p>At Kapadia High School, we believe that a conducive learning environment plays a crucial role in a student's educational journey. Our campuses are equipped with modern facilities and infrastructure designed to support academic excellence, physical development, and creative expression.</p>
+          <p>We continuously invest in upgrading our facilities to ensure that our students have access to the best resources for their holistic development.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Academic Facilities Section -->
+<section class="facilities-section academic-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-title">Academic Facilities</h2>
+        <div class="section-underline"></div>
+        <p class="section-description">Modern classrooms and learning spaces designed for effective education</p>
+      </div>
+    </div>
+    
+    <div class="row mt-5">
+      <!-- Classrooms -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="facility-card">
+          <div class="facility-icon">
+            <i class="fa fa-desktop"></i>
+          </div>
+          <h3>Smart Classrooms</h3>
+          <p>Our classrooms are equipped with interactive smartboards, digital projectors, and audio systems to facilitate engaging and interactive learning experiences.</p>
+          <ul class="facility-features">
+            <li>Interactive digital boards</li>
+            <li>Comfortable seating arrangements</li>
+            <li>Proper lighting and ventilation</li>
+            <li>Wi-Fi connectivity</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Science Labs -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="facility-card">
+          <div class="facility-icon">
+            <i class="fa fa-flask"></i>
+          </div>
+          <h3>Science Laboratories</h3>
+          <p>Our well-equipped science laboratories provide students with hands-on experience in physics, chemistry, and biology experiments.</p>
+          <ul class="facility-features">
+            <li>Separate labs for Physics, Chemistry, and Biology</li>
+            <li>Modern lab equipment and apparatus</li>
+            <li>Safety gear and protocols</li>
+            <li>Qualified lab assistants</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Computer Labs -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="facility-card">
+          <div class="facility-icon">
+            <i class="fa fa-laptop"></i>
+          </div>
+          <h3>Computer Labs</h3>
+          <p>Our computer laboratories are equipped with the latest hardware and software to ensure students develop essential digital literacy skills.</p>
+          <ul class="facility-features">
+            <li>High-speed internet connectivity</li>
+            <li>Latest software applications</li>
+            <li>One computer per student policy</li>
+            <li>Regular upgrades and maintenance</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Library -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="facility-card">
+          <div class="facility-icon">
+            <i class="fa fa-book"></i>
+          </div>
+          <h3>Library & Resource Center</h3>
+          <p>Our extensive library houses a vast collection of books, journals, and digital resources to support academic research and foster a love for reading.</p>
+          <ul class="facility-features">
+            <li>Over 10,000 books across various subjects</li>
+            <li>Digital catalog and e-resources</li>
+            <li>Comfortable reading spaces</li>
+            <li>Regular book exhibitions and reading events</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Language Lab -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="facility-card">
+          <div class="facility-icon">
+            <i class="fa fa-comments"></i>
+          </div>
+          <h3>Language Laboratory</h3>
+          <p>Our language lab is designed to enhance students' communication skills in various languages through interactive audio-visual tools.</p>
+          <ul class="facility-features">
+            <li>Audio-visual learning stations</li>
+            <li>Language learning software</li>
+            <li>Recording and playback facilities</li>
+            <li>Group discussion areas</li>
+          </ul>
+        </div>
+      </div>
+      
+      <!-- STEM Lab -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="facility-card">
+          <div class="facility-icon">
+            <i class="fa fa-cogs"></i>
+          </div>
+          <h3>STEM Innovation Lab</h3>
+          <p>Our STEM lab provides a space for students to explore science, technology, engineering, and mathematics through practical projects and experiments.</p>
+          <ul class="facility-features">
+            <li>Robotics kits and equipment</li>
+            <li>3D printers and design software</li>
+            <li>Electronics and circuit components</li>
+            <li>Project display and presentation area</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sports Facilities Section -->
+<section class="facilities-section sports-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-title">Sports Facilities</h2>
+        <div class="section-underline"></div>
+        <p class="section-description">World-class sports infrastructure for physical fitness and competitive sports</p>
+      </div>
+    </div>
+    
+    <div class="row mt-5">
+      <!-- Sports Complex -->
+      <div class="col-md-6 mb-4">
+        <div class="sports-facility">
+          <div class="facility-image">
+            <img src="https://via.placeholder.com/600x400?text=Sports+Complex" alt="Sports Complex" class="img-fluid">
+          </div>
+          <div class="facility-details">
+            <h3>Multi-purpose Sports Complex</h3>
+            <p>Our state-of-the-art sports complex includes facilities for indoor and outdoor sports activities, promoting physical fitness and sportsmanship among students.</p>
+            <div class="facility-features-list">
+              <div class="feature-item">
+                <i class="fa fa-check-circle"></i>
+                <span>Indoor badminton courts</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa fa-check-circle"></i>
+                <span>Basketball courts</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa fa-check-circle"></i>
+                <span>Table tennis facilities</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa fa-check-circle"></i>
+                <span>Volleyball courts</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa fa-check-circle"></i>
+                <span>Changing rooms and showers</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Cricket Ground -->
+      <div class="col-md-6 mb-4">
+        <div class="sports-facility">
+          <div class="facility-image">
+            <img src="https://via.placeholder.com/600x400?text=Cricket+Ground" alt="Cricket Ground" class="img-fluid">
+          </div>
+          <div class="facility-details">
+            <h3>Cricket Ground</h3>
+            <p>Our well-maintained cricket ground provides ample space for cricket practice and matches, nurturing future cricket stars.</p>
+            <div class="facility-features-list">
+              <div class="feature-item">
+                <i class="fa fa-check-circle"></i>
+                <span>Standard size cricket pitch</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa fa-check-circle"></i>
+                <span>Practice nets</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa fa-check-circle"></i>
+                <span>Electronic scoreboard</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa fa-check-circle"></i>
+                <span>Spectator seating area</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa fa-check-circle"></i>
+                <span>Professional coaching</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Swimming Pool -->
+      <div class="col-md-6 mb-4">
+        <div class="sports-facility">
+          <div class="facility-image">
+            <img src="https://via.placeholder.com/600x400?text=Swimming+Pool" alt="Swimming Pool" class="img-fluid">
+          </div>
+          <div class="facility-details">
+            <h3>Swimming Pool</h3>
+            <p>Our semi-Olympic size swimming pool is perfect for swimming lessons, practice, and competitions, supervised by trained coaches.</p>
+            <div class="facility-features-list">
+              <div class="feature-item">
+                <i class="fa fa-check-circle"></i>
+                <span>Semi-Olympic size pool</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa fa-check-circle"></i>
+                <span>Separate kids' pool</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa fa-check-circle"></i>
+                <span>Certified lifeguards</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa fa-check-circle"></i>
+                <span>Regular water quality checks</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa fa-check-circle"></i>
+                <span>Swimming gear available</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Fitness Center -->
+      <div class="col-md-6 mb-4">
+        <div class="sports-facility">
+          <div class="facility-image">
+            <img src="https://via.placeholder.com/600x400?text=Fitness+Center" alt="Fitness Center" class="img-fluid">
+          </div>
+          <div class="facility-details">
+            <h3>Fitness Center</h3>
+            <p>Our modern fitness center is equipped with a range of exercise equipment to promote physical fitness and a healthy lifestyle among students.</p>
+            <div class="facility-features-list">
+              <div class="feature-item">
+                <i class="fa fa-check-circle"></i>
+                <span>Cardio equipment</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa fa-check-circle"></i>
+                <span>Weight training area</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa fa-check-circle"></i>
+                <span>Fitness trainers</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa fa-check-circle"></i>
+                <span>Yoga and aerobics space</span>
+              </div>
+              <div class="feature-item">
+                <i class="fa fa-check-circle"></i>
+                <span>Nutritional guidance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Arts & Cultural Facilities Section -->
+<section class="facilities-section cultural-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-title">Arts & Cultural Facilities</h2>
+        <div class="section-underline"></div>
+        <p class="section-description">Dedicated spaces for nurturing creativity and artistic expression</p>
+      </div>
+    </div>
+    
+    <div class="row mt-5">
+      <!-- Auditorium -->
+      <div class="col-lg-6 mb-4">
+        <div class="cultural-facility">
+          <div class="row align-items-center">
+            <div class="col-md-5">
+              <div class="facility-image">
+                <img src="https://via.placeholder.com/400x300?text=Auditorium" alt="Auditorium" class="img-fluid">
+              </div>
+            </div>
+            <div class="col-md-7">
+              <div class="facility-info">
+                <h3>Multipurpose Auditorium</h3>
+                <p>Our spacious auditorium serves as a venue for school assemblies, cultural performances, seminars, and other events.</p>
+                <ul class="facility-highlights">
+                  <li>500+ seating capacity</li>
+                  <li>Advanced sound and lighting systems</li>
+                  <li>Professional stage setup</li>
+                  <li>Backstage facilities</li>
+                  <li>Air-conditioned environment</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Music Room -->
+      <div class="col-lg-6 mb-4">
+        <div class="cultural-facility">
+          <div class="row align-items-center">
+            <div class="col-md-5">
+              <div class="facility-image">
+                <img src="https://via.placeholder.com/400x300?text=Music+Room" alt="Music Room" class="img-fluid">
+              </div>
+            </div>
+            <div class="col-md-7">
+              <div class="facility-info">
+                <h3>Music Room</h3>
+                <p>Our dedicated music room is equipped with various musical instruments and recording facilities for students interested in music.</p>
+                <ul class="facility-highlights">
+                  <li>Various musical instruments</li>
+                  <li>Sound-proof practice rooms</li>
+                  <li>Recording equipment</li>
+                  <li>Music theory resources</li>
+                  <li>Qualified music instructors</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Art Studio -->
+      <div class="col-lg-6 mb-4">
+        <div class="cultural-facility">
+          <div class="row align-items-center">
+            <div class="col-md-5">
+              <div class="facility-image">
+                <img src="https://via.placeholder.com/400x300?text=Art+Studio" alt="Art Studio" class="img-fluid">
+              </div>
+            </div>
+            <div class="col-md-7">
+              <div class="facility-info">
+                <h3>Art Studio</h3>
+                <p>Our art studio provides a creative space for students to explore various art forms and develop their artistic skills.</p>
+                <ul class="facility-highlights">
+                  <li>Spacious workstations</li>
+                  <li>Art supplies and materials</li>
+                  <li>Pottery and sculpture area</li>
+                  <li>Exhibition space</li>
+                  <li>Natural lighting</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Dance Studio -->
+      <div class="col-lg-6 mb-4">
+        <div class="cultural-facility">
+          <div class="row align-items-center">
+            <div class="col-md-5">
+              <div class="facility-image">
+                <img src="https://via.placeholder.com/400x300?text=Dance+Studio" alt="Dance Studio" class="img-fluid">
+              </div>
+            </div>
+            <div class="col-md-7">
+              <div class="facility-info">
+                <h3>Dance Studio</h3>
+                <p>Our dance studio features wooden flooring, mirrors, and sound systems for various dance forms and choreography practice.</p>
+                <ul class="facility-highlights">
+                  <li>Sprung wooden flooring</li>
+                  <li>Wall-to-wall mirrors</li>
+                  <li>Professional sound system</li>
+                  <li>Changing rooms</li>
+                  <li>Dance props and costumes</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Other Facilities Section -->
+<section class="facilities-section other-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-title">Other Facilities</h2>
+        <div class="section-underline"></div>
+        <p class="section-description">Additional amenities to ensure comfort, safety, and convenience</p>
+      </div>
+    </div>
+    
+    <div class="row mt-5">
+      <!-- Cafeteria -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="other-facility">
+          <div class="facility-icon">
+            <i class="fa fa-cutlery"></i>
+          </div>
+          <h3>Cafeteria</h3>
+          <p>Our cafeteria serves nutritious and balanced meals prepared in a hygienic environment, catering to various dietary preferences.</p>
+        </div>
+      </div>
+      
+      <!-- Medical Room -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="other-facility">
+          <div class="facility-icon">
+            <i class="fa fa-medkit"></i>
+          </div>
+          <h3>Medical Room</h3>
+          <p>Our medical room is equipped with first-aid facilities and staffed by qualified medical personnel to handle emergencies.</p>
+        </div>
+      </div>
+      
+      <!-- Transport -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="other-facility">
+          <div class="facility-icon">
+            <i class="fa fa-bus"></i>
+          </div>
+          <h3>Transport Facilities</h3>
+          <p>We provide safe and comfortable transportation services with GPS-tracked buses covering various routes.</p>
+        </div>
+      </div>
+      
+      <!-- Hostel -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="other-facility">
+          <div class="facility-icon">
+            <i class="fa fa-home"></i>
+          </div>
+          <h3>Hostel Facilities</h3>
+          <p>Our hostels provide a home away from home with comfortable accommodation, nutritious meals, and a supportive environment.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Virtual Tour Section -->
+<section class="virtual-tour-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-title">Virtual Campus Tour</h2>
+        <div class="section-underline"></div>
+        <p class="section-description">Explore our campus facilities through our virtual tour</p>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-lg-6">
+        <p>Can't visit our campus in person? Take a virtual tour to explore our facilities and get a feel of our learning environment.</p>
+      </div>
+      <div class="col-lg-6 text-center text-lg-end">
+        <a href="#" class="btn btn-primary tour-btn">Start Virtual Tour</a>
+        <a href="{% url 'contact' %}" class="btn btn-outline-primary tour-btn">Schedule a Visit</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

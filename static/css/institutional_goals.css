@@ -1,0 +1,177 @@
+/* Institutional Goals Page Styling */
+
+/* Header Styles */
+.goals-header {
+  background-color: #003264;
+  color: #ffffff;
+  padding: 60px 0 40px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.goals-header:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #F4C430;
+}
+
+.goals-header .page-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.goals-header .lead {
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+.title-underline {
+  height: 4px;
+  width: 80px;
+  background-color: #F4C430;
+  margin: 0 auto 25px;
+}
+
+/* Goals Section Styles */
+.goals-section {
+  padding: 40px 0 60px;
+  background-color: #f9fafb;
+}
+
+.goals-intro {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 20px;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #4B5563;
+}
+
+.goal-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 30px 25px;
+  height: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.goal-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.goal-icon {
+  font-size: 2.5rem;
+  color: #003264;
+  margin-bottom: 20px;
+}
+
+.goal-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 15px;
+}
+
+.card-underline {
+  height: 3px;
+  width: 50px;
+  background-color: #F4C430;
+  margin: 0 auto 20px;
+}
+
+.goal-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4B5563;
+}
+
+/* Objectives Section Styles */
+.objectives-section {
+  padding: 60px 0;
+  background-color: #ffffff;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 15px;
+}
+
+.objective-item {
+  display: flex;
+  margin-bottom: 30px;
+  align-items: flex-start;
+}
+
+.objective-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #F4C430;
+  margin-right: 20px;
+  line-height: 1;
+  opacity: 0.8;
+}
+
+.objective-content {
+  flex: 1;
+}
+
+.objective-content h4 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #003264;
+  margin-bottom: 10px;
+}
+
+.objective-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4B5563;
+  margin-bottom: 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .goals-header .page-title {
+    font-size: 2.4rem;
+  }
+  
+  .goals-header .lead {
+    font-size: 1.2rem;
+  }
+  
+  .objective-number {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .goals-header {
+    padding: 40px 0 30px;
+  }
+  
+  .goals-header .page-title {
+    font-size: 2rem;
+  }
+  
+  .goals-intro {
+    font-size: 1.1rem;
+  }
+  
+  .objective-item {
+    flex-direction: column;
+  }
+  
+  .objective-number {
+    margin-bottom: 10px;
+  }
+}

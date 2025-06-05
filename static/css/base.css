@@ -1,0 +1,243 @@
+/* General Styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f4f9;
+  position: relative;
+  overflow-x: hidden;
+  height: 100%;
+  overflow-y: scroll; /* Always show scrollbar to prevent layout shifts */
+}
+.gallery img {
+  max-width: 100%;
+  height: 250px; /* Set a fixed height for uniformity */
+  object-fit: cover; /* Ensures the image covers the entire div */
+  border-radius: 8px; /* Optional: adds rounded corners */
+}
+
+h4,
+.footer ul li {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Navbar Styles */
+.navbar {
+  background-color: #003264;
+  border-bottom: 3px solid #003264;
+}
+
+.navbar-brand img {
+  max-height: 60px;
+}
+
+.nav-link {
+  color: #fff !important;
+  margin-right: 20px;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #ffd700 !important;
+}
+
+
+.my-custom-class {
+  font-size: 1.5em;
+  color: #fff;
+}
+
+/* Base Carousel Styles - specific styling in carousel.css */
+/* These styles are overridden by carousel.css for the homepage carousel */
+.carousel-container:not(#homeCarousel .carousel-container) {
+  width: 100%;
+  position: relative;
+}
+
+.carousel-inner:not(#homeCarousel .carousel-inner) {
+  width: 100%;
+}
+
+.carousel-item img:not(.carousel-image) {
+  object-fit: cover;
+  width: 100%;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767.98px) {
+  .carousel-container:not(#homeCarousel .carousel-container) {
+    height: auto;
+  }
+
+  .carousel-item img:not(.carousel-image) {
+    height: auto;
+  }
+}
+
+
+/* Footer Styles */
+.footer {
+  background: #003264 !important;
+  color: #fff;
+  padding: 40px 0;
+  margin-top: 0;
+  border-top: none;
+  animation: slideInUp 1.5s ease-in-out;
+}
+
+.footer h4 {
+  color: #ffd700;
+  margin-bottom: 20px;
+}
+
+.footer ul {
+  font-weight: bold;
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer ul li a {
+  color: #bbb;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: bold;
+}
+
+.footer ul li a:hover {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.footer .social-links a {
+  display: inline-block;
+  margin-right: 10px;
+  color: #fff;
+  font-size: 18px;
+  transition: transform 0.3s;
+}
+
+.footer .social-links a:hover {
+  transform: scale(1.2);
+}
+
+.footer .school-details {
+  margin-bottom: 20px;
+}
+
+@keyframes slideInUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: #003264;
+  border: none;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #003264;
+  transform: scale(1.05);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767.98px) {
+  .navbar .navbar-collapse {
+    background-color: #003264;
+  }
+
+  .carousel-container:not(#homeCarousel .carousel-container) {
+    height: auto;
+  }
+
+  .carousel-item img:not(.carousel-image) {
+    height: auto;
+  }
+
+  .footer {
+    text-align: center;
+  }
+
+  .footer-col {
+    margin-bottom: 20px;
+  }
+}
+/*******Contact us ********/
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between the buttons */
+  margin-bottom: 30px; /* Space between the buttons and the map */
+}
+
+.btn-group .btn {
+  background-color: #003264;
+  color: #ffffff;
+  border: none;
+  padding: 15px 30px; /* Increased padding for bigger buttons */
+  font-size: 18px; /* Larger font size */
+  border-radius: 8px; /* Slightly larger border-radius */
+  transition: background-color 0.3s ease;
+}
+
+.btn-group .btn:hover {
+  background-color: #003264;
+}
+
+.btn-group .btn:focus {
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}

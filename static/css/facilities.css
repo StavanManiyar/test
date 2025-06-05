@@ -1,0 +1,455 @@
+/* Facilities Page Styles */
+
+/* Page Header Styles */
+.facilities-header {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.page-title {
+    color: #343a40;
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+}
+
+.title-underline {
+    height: 3px;
+    width: 80px;
+    background-color: #007bff;
+    margin: 0 auto 20px;
+}
+
+.facilities-header .lead {
+    color: #6c757d;
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Introduction Section Styles */
+.intro-section {
+    padding: 20px 0 50px;
+}
+
+.intro-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.intro-content p {
+    color: #495057;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* Facilities Section Common Styles */
+.facilities-section {
+    padding: 60px 0;
+}
+
+.facilities-section:nth-child(odd) {
+    background-color: #f8f9fa;
+}
+
+.section-title {
+    color: #343a40;
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-size: 2.2rem;
+}
+
+.section-underline {
+    height: 3px;
+    width: 60px;
+    background-color: #007bff;
+    margin: 0 auto 20px;
+}
+
+.section-description {
+    color: #6c757d;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Academic Facilities Styles */
+.facility-card {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    height: 100%;
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.facility-card:hover {
+    transform: translateY(-5px);
+}
+
+.facility-icon {
+    width: 70px;
+    height: 70px;
+    background-color: #007bff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.facility-icon i {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.facility-card h3 {
+    color: #343a40;
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.facility-card p {
+    color: #6c757d;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.facility-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.facility-features li {
+    color: #495057;
+    font-size: 0.9rem;
+    padding: 8px 0;
+    border-bottom: 1px dashed #e9ecef;
+    position: relative;
+    padding-left: 20px;
+}
+
+.facility-features li:last-child {
+    border-bottom: none;
+}
+
+.facility-features li:before {
+    content: "\f00c";
+    font-family: FontAwesome;
+    position: absolute;
+    left: 0;
+    color: #28a745;
+}
+
+/* Sports Facilities Styles */
+.sports-facility {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.sports-facility:hover {
+    transform: translateY(-5px);
+}
+
+.facility-image {
+    overflow: hidden;
+}
+
+.facility-image img {
+    transition: transform 0.5s ease;
+    width: 100%;
+}
+
+.sports-facility:hover .facility-image img {
+    transform: scale(1.05);
+}
+
+.facility-details {
+    padding: 25px;
+}
+
+.facility-details h3 {
+    color: #343a40;
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.facility-details p {
+    color: #6c757d;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.facility-features-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    width: 50%;
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+.feature-item i {
+    color: #28a745;
+    margin-right: 8px;
+    font-size: 0.9rem;
+}
+
+.feature-item span {
+    color: #495057;
+    font-size: 0.9rem;
+}
+
+/* Cultural Facilities Styles */
+.cultural-facility {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+
+.cultural-facility:hover {
+    transform: translateY(-5px);
+}
+
+.cultural-facility .facility-image {
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.cultural-facility .facility-image img {
+    transition: transform 0.5s ease;
+}
+
+.cultural-facility:hover .facility-image img {
+    transform: scale(1.05);
+}
+
+.facility-info h3 {
+    color: #343a40;
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.facility-info p {
+    color: #6c757d;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.facility-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.facility-highlights li {
+    color: #495057;
+    font-size: 0.9rem;
+    padding: 5px 0;
+    position: relative;
+    padding-left: 20px;
+}
+
+.facility-highlights li:before {
+    content: "\f00c";
+    font-family: FontAwesome;
+    position: absolute;
+    left: 0;
+    color: #28a745;
+}
+
+/* Other Facilities Styles */
+.other-facility {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    height: 100%;
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.other-facility:hover {
+    transform: translateY(-5px);
+}
+
+.other-facility .facility-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #007bff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+}
+
+.other-facility .facility-icon i {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.other-facility h3 {
+    color: #343a40;
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.other-facility p {
+    color: #6c757d;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Virtual Tour Section Styles */
+.virtual-tour-section {
+    background-color: #003264;
+    padding: 60px 0 0 0;
+    margin-top: 40px;
+    margin-bottom: 0;
+    color: #fff;
+    text-align: center;
+}
+
+.virtual-tour-section h2 {
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.virtual-tour-section p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.tour-btn {
+    margin: 5px;
+    padding: 12px 25px;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary.tour-btn {
+    background-color: #fff;
+    color: #007bff;
+    border: none;
+}
+
+.btn-primary.tour-btn:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline-primary.tour-btn {
+    border-color: #fff;
+    color: #fff;
+}
+
+.btn-outline-primary.tour-btn:hover {
+    background-color: #fff;
+    color: #007bff;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .cultural-facility .facility-image {
+        margin-bottom: 20px;
+    }
+    
+    .virtual-tour-section {
+        text-align: center;
+    }
+    
+    .tour-btn {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .facility-card, .sports-facility, .cultural-facility, .other-facility {
+        margin-bottom: 30px;
+    }
+    
+    .feature-item {
+        width: 100%;
+    }
+    
+    .cultural-facility .row {
+        flex-direction: column;
+    }
+    
+    .cultural-facility .facility-image {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 575px) {
+    .facilities-header {
+        padding: 40px 0;
+    }
+    
+    .page-title {
+        font-size: 1.8rem;
+    }
+    
+    .intro-content {
+        padding: 20px;
+    }
+    
+    .facility-card, .sports-facility, .cultural-facility, .other-facility {
+        padding: 15px;
+    }
+    
+    .facility-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .facility-icon i {
+        font-size: 1.5rem;
+    }
+}

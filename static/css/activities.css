@@ -1,0 +1,217 @@
+/* Activities Page Styling */
+
+/* Header Styles */
+.activities-header {
+  background-color: #003264;
+  color: #ffffff;
+  padding: 60px 0 40px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.activities-header:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background-color: #F4C430;
+}
+
+.activities-header .page-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.activities-header .lead {
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+.title-underline {
+  height: 4px;
+  width: 80px;
+  background-color: #F4C430;
+  margin: 0 auto 25px;
+}
+
+/* Introduction Section Styles */
+.intro-section {
+  padding: 20px 0 50px;
+}
+
+.intro-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.intro-content p {
+  color: #495057;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+/* Section Styles */
+.activities-section {
+  padding: 60px 0;
+}
+
+.sports-section {
+  background-color: #f9fafb;
+}
+
+.cultural-section {
+  background-color: #ffffff;
+}
+
+.academic-section {
+  background-color: #f9fafb;
+}
+
+.events-section {
+  background-color: #ffffff;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #003264;
+  margin-bottom: 15px;
+}
+
+.section-underline {
+  height: 4px;
+  width: 60px;
+  background-color: #F4C430;
+  margin: 0 auto 25px;
+}
+
+.section-description {
+  font-size: 1.1rem;
+  color: #4B5563;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Activity Card Styles */
+.activity-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.activity-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.activity-image {
+  overflow: hidden;
+  position: relative;
+}
+
+.activity-image img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.activity-card:hover .activity-image img {
+  transform: scale(1.05);
+}
+
+.activity-info {
+  padding: 25px 20px;
+  text-align: center;
+}
+
+.activity-info h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #003264;
+  margin-bottom: 10px;
+}
+
+.activity-underline {
+  height: 3px;
+  width: 50px;
+  background-color: #F4C430;
+  margin: 0 auto 15px;
+}
+
+.activity-info p {
+  color: #4B5563;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Responsive Styles */
+@media (max-width: 991.98px) {
+  .activities-header .page-title {
+    font-size: 2.4rem;
+  }
+  
+  .activities-header .lead {
+    font-size: 1.2rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .activities-header {
+    padding: 40px 0 30px;
+  }
+  
+  .activities-header .page-title {
+    font-size: 2rem;
+  }
+  
+  .activities-header .lead {
+    font-size: 1.1rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .intro-content {
+    padding: 20px;
+  }
+  
+  .activities-section {
+    padding: 40px 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .activities-header .page-title {
+    font-size: 1.8rem;
+  }
+  
+  .activities-header .lead {
+    font-size: 1rem;
+  }
+  
+  .section-title {
+    font-size: 1.6rem;
+  }
+  
+  .activity-info h3 {
+    font-size: 1.3rem;
+  }
+}

@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Chandkheda Campus - Kapadia High School{% endblock %}
+
+{% block page_css %}
+<link href="{% static 'css/campus.css' %}" rel='stylesheet' type='text/css'>
+{% endblock page_css %}
+
+{% block content %}
+
+
+<div class="container my-5">
+    <div class="row">
+        <!-- Left side - Image -->
+        <div class="col-md-4">
+            <div class="campus-image">
+                <img src="{% static 'image/campus_chandkheda.jpg' %}" alt="Memnagar Campus" class="img-fluid rounded shadow" onerror="this.src='https://via.placeholder.com/400x300?text=Memnagar+Campus'">
+            </div>
+        </div>
+        
+        <!-- Right side - Information -->
+        <div class="col-md-8">
+            <h1 class="campus-title">Chandkheda</h1>
+            
+            <div class="campus-details">
+                <div class="row mb-2">
+                    <div class="col-md-3 fw-bold">Board</div>
+                    <div class="col-md-9">: GSEB</div>
+                </div>
+                <!-- <div class="row mb-2">
+                    <div class="col-md-3 fw-bold">Affiliation Number</div>
+                    <div class="col-md-9">: 430405</div>
+                </div> -->
+                <div class="row mb-2">
+                    <div class="col-md-3 fw-bold">Timings</div>
+                    <div class="col-md-9">: 8:00 am to 2:00 pm (Monday-Friday)</div>
+                </div>
+            </div>
+            
+            <!-- <div class="board-buttons mt-4">
+                <a href="#" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#cbseModal">CBSE</a>
+                <a href="#" class="btn btn-primary">LC</a>
+            </div> -->
+        </div>
+    </div>
+    
+    <!-- Document Links Section -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="row mb-3">
+                <div class="col-md-4 mb-3">
+                    <a href="#" class="facility-btn">SMART BOARDS</a>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <a href="#" class="facility-btn">PLAYGROUND</a>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <a href="#" class="facility-btn">LIBRARY</a>
+                </div>
+            </div>
+            
+            <div class="row mb-3">
+                <div class="col-md-4 mb-3">
+                    <a href="#" class="facility-btn">ART ROOM</a>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <a href="#" class="facility-btn">MUSIC ROOM</a>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <a href="#" class="facility-btn">CURATED LABS</a>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <a href="#" class="facility-btn">TRANSPORTATION</a>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <a href="#" class="facility-btn">MEDICAL ROOM</a>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <a href="#" class="facility-btn">GREEN CAMPUS</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- CBSE Modal Popup -->
+<div class="modal fade" id="cbseModal" tabindex="-1" aria-labelledby="cbseModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="cbseModalLabel">CBSE</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul class="list-unstyled">
+          <li><a href="" target="_blank" class="pdf-link"><span class="circle-bullet"></span> AFFILIATION LETTER <i class="fa fa-file-pdf-o ms-1"></i></a></li>
+          <li><a href="" target="_blank" class="pdf-link"><span class="circle-bullet"></span> TRUST CERTIFICATE <i class="fa fa-file-pdf-o ms-1"></i></a></li>
+          <li><a href="" target="_blank" class="pdf-link"><span class="circle-bullet"></span> NOC <i class="fa fa-file-pdf-o ms-1"></i></a></li>
+          <li><a href="" target="_blank" class="pdf-link"><span class="circle-bullet"></span> RECOGNITION CERTIFICATE <i class="fa fa-file-pdf-o ms-1"></i></a></li>
+          <li><a href="" target="_blank" class="pdf-link"><span class="circle-bullet"></span> BUILDING CERTIFICATE <i class="fa fa-file-pdf-o ms-1"></i></a></li>
+          <li><a href="" target="_blank" class="pdf-link"><span class="circle-bullet"></span> FIRE CERTIFICATE <i class="fa fa-file-pdf-o ms-1"></i></a></li>
+          <li><a href="" target="_blank" class="pdf-link"><span class="circle-bullet"></span> SELF CERTIFICATION <i class="fa fa-file-pdf-o ms-1"></i></a></li>
+          <li><a href="" target="_blank" class="pdf-link"><span class="circle-bullet"></span> WATERHEALTH CERTIFICATE <i class="fa fa-file-pdf-o ms-1"></i></a></li>
+          <li><a href="" target="_blank" class="pdf-link"><span class="circle-bullet"></span> PTA <i class="fa fa-file-pdf-o ms-1"></i></a></li>
+          <li><a href="" target="_blank" class="pdf-link"><span class="circle-bullet"></span> BOARD RESULT <i class="fa fa-file-pdf-o ms-1"></i></a></li>
+          <li><a href="" target="_blank" class="pdf-link"><span class="circle-bullet"></span> SMC <i class="fa fa-file-pdf-o ms-1"></i></a></li>
+          <li><a href="" target="_blank" class="pdf-link"><span class="circle-bullet"></span> ACADEMIC PLANNER <i class="fa fa-file-pdf-o ms-1"></i></a></li>
+          <li><a href="" target="_blank" class="pdf-link"><span class="circle-bullet"></span> FEE STRUCTURE <i class="fa fa-file-pdf-o ms-1"></i></a></li>
+          <li><a href="" target="_blank" class="pdf-link"><span class="circle-bullet"></span> SELF AFFIDAVIT <i class="fa fa-file-pdf-o ms-1"></i></a></li>
+          <li><a href="" target="_blank" class="pdf-link"><span class="circle-bullet"></span> MANDATORY DISCLOSURE_Appendix-IX <i class="fa fa-file-pdf-o ms-1"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% block page_js %}
+<script>
+    // JavaScript for modal functionality if needed
+</script>
+{% endblock page_js %}
+{% endblock content %}

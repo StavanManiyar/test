@@ -1,0 +1,700 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Admissions - Kapadia High School{% endblock %}
+
+{% block page_css %}
+<link href="{% static 'css/admissions.css' %}" rel='stylesheet' type='text/css'>
+{% endblock page_css %}
+
+{% block content %}
+<!-- Page Header -->
+<div class="admissions-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="page-title"><i class="fa fa-graduation-cap"></i> Admissions</h1>
+        <div class="title-underline"></div>
+        <p class="lead">Join Our Community of Learners and Achievers</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Introduction Section -->
+<section class="intro-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="intro-content">
+          <p>Thank you for considering Kapadia High School for your child's education. We are committed to providing a nurturing environment where students can develop academically, socially, and emotionally.</p>
+          <p>Our admissions process is designed to ensure that we can meet the educational needs of each student and that our school is the right fit for your family. We welcome applications from students of all backgrounds who demonstrate a desire to learn and grow.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Admissions Process Section -->
+<section class="process-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-title">Admissions Process</h2>
+        <div class="section-underline"></div>
+        <p class="section-description">A step-by-step guide to joining Kapadia High School</p>
+      </div>
+    </div>
+    
+    <div class="row mt-5">
+      <div class="col-lg-10 mx-auto">
+        <div class="process-timeline">
+          <!-- Step 1 -->
+          <div class="timeline-item">
+            <div class="timeline-dot">
+              <span>1</span>
+            </div>
+            <div class="timeline-content">
+              <h3>Inquiry and School Visit</h3>
+              <p>Begin your journey by contacting our admissions office to schedule a campus tour. This visit will give you and your child an opportunity to explore our facilities, meet our staff, and get a feel for our school culture.</p>
+              <div class="timeline-info">
+                <div class="info-item">
+                  <i class="fa fa-calendar"></i>
+                  <span>Available throughout the year</span>
+                </div>
+                <div class="info-item">
+                  <i class="fa fa-clock-o"></i>
+                  <span>Duration: Approximately 1 hour</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Step 2 -->
+          <div class="timeline-item">
+            <div class="timeline-dot">
+              <span>2</span>
+            </div>
+            <div class="timeline-content">
+              <h3>Application Submission</h3>
+              <p>Complete and submit the application form along with the required documents. The application form can be obtained from our admissions office or downloaded from our website.</p>
+              <div class="timeline-info">
+                <div class="info-item">
+                  <i class="fa fa-calendar"></i>
+                  <span>Deadline: March 31st for the upcoming academic year</span>
+                </div>
+                <div class="info-item">
+                  <i class="fa fa-file-text-o"></i>
+                  <span>Application fee: ₹500</span>
+                </div>
+              </div>
+              <div class="timeline-action">
+                <a href="#" class="btn btn-outline-primary">Download Application Form</a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Step 3 -->
+          <div class="timeline-item">
+            <div class="timeline-dot">
+              <span>3</span>
+            </div>
+            <div class="timeline-content">
+              <h3>Entrance Assessment</h3>
+              <p>Students applying for grades 6-12 are required to take an entrance assessment to evaluate their academic readiness. The assessment covers English, Mathematics, and General Knowledge appropriate for the grade level.</p>
+              <div class="timeline-info">
+                <div class="info-item">
+                  <i class="fa fa-calendar"></i>
+                  <span>Conducted in April</span>
+                </div>
+                <div class="info-item">
+                  <i class="fa fa-clock-o"></i>
+                  <span>Duration: 2 hours</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Step 4 -->
+          <div class="timeline-item">
+            <div class="timeline-dot">
+              <span>4</span>
+            </div>
+            <div class="timeline-content">
+              <h3>Interview</h3>
+              <p>Shortlisted candidates and their parents will be invited for an interview with the school principal or admissions committee. This interaction helps us understand the student's interests, aspirations, and how we can support their educational journey.</p>
+              <div class="timeline-info">
+                <div class="info-item">
+                  <i class="fa fa-calendar"></i>
+                  <span>Scheduled in April-May</span>
+                </div>
+                <div class="info-item">
+                  <i class="fa fa-users"></i>
+                  <span>Both parents and student should attend</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Step 5 -->
+          <div class="timeline-item">
+            <div class="timeline-dot">
+              <span>5</span>
+            </div>
+            <div class="timeline-content">
+              <h3>Admission Decision</h3>
+              <p>Admission decisions are communicated to parents via email and post. The decision is based on the student's academic record, entrance assessment results, interview, and availability of seats.</p>
+              <div class="timeline-info">
+                <div class="info-item">
+                  <i class="fa fa-calendar"></i>
+                  <span>Announced by May 15th</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Step 6 -->
+          <div class="timeline-item">
+            <div class="timeline-dot">
+              <span>6</span>
+            </div>
+            <div class="timeline-content">
+              <h3>Fee Payment and Enrollment</h3>
+              <p>Upon acceptance, parents are required to pay the admission fee and first term tuition to secure their child's place. Once the payment is confirmed, the enrollment process is completed with the issuance of the school ID and other necessary materials.</p>
+              <div class="timeline-info">
+                <div class="info-item">
+                  <i class="fa fa-calendar"></i>
+                  <span>Due within 15 days of acceptance</span>
+                </div>
+                <div class="info-item">
+                  <i class="fa fa-credit-card"></i>
+                  <span>Multiple payment options available</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Required Documents Section -->
+<section class="documents-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-title">Required Documents</h2>
+        <div class="section-underline"></div>
+        <p class="section-description">Please ensure you have the following documents ready for submission</p>
+      </div>
+    </div>
+    
+    <div class="row mt-5">
+      <div class="col-lg-10 mx-auto">
+        <div class="documents-container">
+          <div class="row">
+            <!-- Document 1 -->
+            <div class="col-md-6 mb-4">
+              <div class="document-item">
+                <div class="document-icon">
+                  <i class="fa fa-id-card"></i>
+                </div>
+                <div class="document-info">
+                  <h3>Birth Certificate</h3>
+                  <p>Original and photocopy of the student's birth certificate issued by the Municipal Corporation or equivalent authority.</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Document 2 -->
+            <div class="col-md-6 mb-4">
+              <div class="document-item">
+                <div class="document-icon">
+                  <i class="fa fa-file-text"></i>
+                </div>
+                <div class="document-info">
+                  <h3>Previous School Records</h3>
+                  <p>Report cards and transfer certificate from the previous school attended (if applicable).</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Document 3 -->
+            <div class="col-md-6 mb-4">
+              <div class="document-item">
+                <div class="document-icon">
+                  <i class="fa fa-picture-o"></i>
+                </div>
+                <div class="document-info">
+                  <h3>Passport-sized Photographs</h3>
+                  <p>Four recent passport-sized color photographs of the student and two each of the parents/guardians.</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Document 4 -->
+            <div class="col-md-6 mb-4">
+              <div class="document-item">
+                <div class="document-icon">
+                  <i class="fa fa-address-card"></i>
+                </div>
+                <div class="document-info">
+                  <h3>Address Proof</h3>
+                  <p>Any government-issued document as proof of residence (Aadhaar Card, Passport, Utility Bill, etc.).</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Document 5 -->
+            <div class="col-md-6 mb-4">
+              <div class="document-item">
+                <div class="document-icon">
+                  <i class="fa fa-medkit"></i>
+                </div>
+                <div class="document-info">
+                  <h3>Medical Certificate</h3>
+                  <p>A medical certificate from a registered physician stating that the student is in good health and has received all necessary vaccinations.</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Document 6 -->
+            <div class="col-md-6 mb-4">
+              <div class="document-item">
+                <div class="document-icon">
+                  <i class="fa fa-users"></i>
+                </div>
+                <div class="document-info">
+                  <h3>Parent ID Proofs</h3>
+                  <p>Photocopies of ID proofs of both parents/guardians (Aadhaar Card, PAN Card, Passport, etc.).</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Fee Structure Section -->
+<section class="fees-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-title">Fee Structure</h2>
+        <div class="section-underline"></div>
+        <p class="section-description">Transparent breakdown of our fee structure for the academic year 2023-24</p>
+      </div>
+    </div>
+    
+    <div class="row mt-5">
+      <div class="col-lg-10 mx-auto">
+        <div class="fees-container">
+          <!-- One-time Fees -->
+          <div class="fee-category">
+            <h3 class="category-title">One-time Fees</h3>
+            <div class="fee-table-container">
+              <table class="fee-table">
+                <thead>
+                  <tr>
+                    <th>Fee Type</th>
+                    <th>Amount (₹)</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Registration Fee</td>
+                    <td>500</td>
+                    <td>Non-refundable fee to process the application</td>
+                  </tr>
+                  <tr>
+                    <td>Admission Fee</td>
+                    <td>25,000</td>
+                    <td>One-time fee payable at the time of admission</td>
+                  </tr>
+                  <tr>
+                    <td>Security Deposit</td>
+                    <td>10,000</td>
+                    <td>Refundable deposit returned when the student leaves the school</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <!-- Annual Fees -->
+          <div class="fee-category">
+            <h3 class="category-title">Annual Fees</h3>
+            <div class="fee-table-container">
+              <table class="fee-table">
+                <thead>
+                  <tr>
+                    <th>Fee Type</th>
+                    <th>Amount (₹)</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Development Fee</td>
+                    <td>15,000</td>
+                    <td>Annual fee for infrastructure development and maintenance</td>
+                  </tr>
+                  <tr>
+                    <td>Computer Lab Fee</td>
+                    <td>5,000</td>
+                    <td>For computer education and maintenance of IT infrastructure</td>
+                  </tr>
+                  <tr>
+                    <td>Activity Fee</td>
+                    <td>8,000</td>
+                    <td>Covers sports, cultural activities, and field trips</td>
+                  </tr>
+                  <tr>
+                    <td>Examination Fee</td>
+                    <td>3,000</td>
+                    <td>For conducting internal and external examinations</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <!-- Quarterly Tuition Fees -->
+          <div class="fee-category">
+            <h3 class="category-title">Quarterly Tuition Fees</h3>
+            <div class="fee-table-container">
+              <table class="fee-table">
+                <thead>
+                  <tr>
+                    <th>Grade</th>
+                    <th>Amount per Quarter (₹)</th>
+                    <th>Annual Amount (₹)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Grades 1-5</td>
+                    <td>15,000</td>
+                    <td>60,000</td>
+                  </tr>
+                  <tr>
+                    <td>Grades 6-8</td>
+                    <td>18,000</td>
+                    <td>72,000</td>
+                  </tr>
+                  <tr>
+                    <td>Grades 9-10</td>
+                    <td>20,000</td>
+                    <td>80,000</td>
+                  </tr>
+                  <tr>
+                    <td>Grades 11-12 (Science)</td>
+                    <td>25,000</td>
+                    <td>100,000</td>
+                  </tr>
+                  <tr>
+                    <td>Grades 11-12 (Commerce)</td>
+                    <td>22,000</td>
+                    <td>88,000</td>
+                  </tr>
+                  <tr>
+                    <td>Grades 11-12 (Arts)</td>
+                    <td>20,000</td>
+                    <td>80,000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <!-- Optional Fees -->
+          <div class="fee-category">
+            <h3 class="category-title">Optional Fees</h3>
+            <div class="fee-table-container">
+              <table class="fee-table">
+                <thead>
+                  <tr>
+                    <th>Service</th>
+                    <th>Amount (₹)</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Transport Fee</td>
+                    <td>8,000 - 15,000</td>
+                    <td>Per quarter, varies based on distance</td>
+                  </tr>
+                  <tr>
+                    <td>Meal Plan</td>
+                    <td>12,000</td>
+                    <td>Per quarter, includes breakfast and lunch</td>
+                  </tr>
+                  <tr>
+                    <td>Hostel Fee</td>
+                    <td>30,000</td>
+                    <td>Per quarter, includes accommodation and meals</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        
+        <div class="fee-notes mt-4">
+          <h4>Important Notes:</h4>
+          <ul>
+            <li>All fees are subject to an annual increase of 5-10%.</li>
+            <li>Tuition fees can be paid quarterly, half-yearly, or annually.</li>
+            <li>A 5% discount is offered on annual payment of tuition fees.</li>
+            <li>Sibling discount of 10% on tuition fees is available for the second child onwards.</li>
+            <li>Late payment attracts a penalty of ₹100 per day.</li>
+            <li>Fees can be paid online through the school portal or by demand draft in favor of "Kapadia High School".</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Scholarships Section -->
+<section class="scholarships-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-title">Scholarships</h2>
+        <div class="section-underline"></div>
+        <p class="section-description">We believe that financial constraints should not hinder quality education</p>
+      </div>
+    </div>
+    
+    <div class="row mt-5">
+      <div class="col-lg-10 mx-auto">
+        <div class="scholarships-container">
+          <div class="row">
+            <!-- Scholarship 1 -->
+            <div class="col-md-6 mb-4">
+              <div class="scholarship-card">
+                <div class="scholarship-header">
+                  <div class="scholarship-icon">
+                    <i class="fa fa-trophy"></i>
+                  </div>
+                  <h3>Merit Scholarship</h3>
+                </div>
+                <div class="scholarship-content">
+                  <p>Awarded to students who demonstrate exceptional academic performance in the entrance assessment or previous academic records.</p>
+                  <ul class="scholarship-details">
+                    <li><strong>Coverage:</strong> Up to 50% of tuition fees</li>
+                    <li><strong>Eligibility:</strong> Score above 90% in entrance assessment or previous academic year</li>
+                    <li><strong>Renewal:</strong> Maintain an average of 85% or above in all subjects</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Scholarship 2 -->
+            <div class="col-md-6 mb-4">
+              <div class="scholarship-card">
+                <div class="scholarship-header">
+                  <div class="scholarship-icon">
+                    <i class="fa fa-users"></i>
+                  </div>
+                  <h3>Need-based Financial Aid</h3>
+                </div>
+                <div class="scholarship-content">
+                  <p>Provided to students from economically disadvantaged backgrounds who demonstrate academic potential and determination.</p>
+                  <ul class="scholarship-details">
+                    <li><strong>Coverage:</strong> Up to 75% of tuition fees</li>
+                    <li><strong>Eligibility:</strong> Based on family income and financial need assessment</li>
+                    <li><strong>Renewal:</strong> Annual review of financial situation and academic performance</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Scholarship 3 -->
+            <div class="col-md-6 mb-4">
+              <div class="scholarship-card">
+                <div class="scholarship-header">
+                  <div class="scholarship-icon">
+                    <i class="fa fa-futbol-o"></i>
+                  </div>
+                  <h3>Sports Excellence Scholarship</h3>
+                </div>
+                <div class="scholarship-content">
+                  <p>Awarded to students who have demonstrated exceptional talent and achievement in sports at the district, state, or national level.</p>
+                  <ul class="scholarship-details">
+                    <li><strong>Coverage:</strong> Up to 100% of tuition fees</li>
+                    <li><strong>Eligibility:</strong> Represented at district/state/national level in recognized sports</li>
+                    <li><strong>Renewal:</strong> Continued participation and achievement in sports events</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Scholarship 4 -->
+            <div class="col-md-6 mb-4">
+              <div class="scholarship-card">
+                <div class="scholarship-header">
+                  <div class="scholarship-icon">
+                    <i class="fa fa-paint-brush"></i>
+                  </div>
+                  <h3>Arts and Cultural Scholarship</h3>
+                </div>
+                <div class="scholarship-content">
+                  <p>Offered to students who display exceptional talent in visual arts, performing arts, music, dance, or other cultural activities.</p>
+                  <ul class="scholarship-details">
+                    <li><strong>Coverage:</strong> Up to 50% of tuition fees</li>
+                    <li><strong>Eligibility:</strong> Demonstrated excellence in arts and cultural activities</li>
+                    <li><strong>Renewal:</strong> Active participation in school cultural events and continued excellence</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="scholarship-application mt-4 text-center">
+          <p>To apply for a scholarship, please download and complete the Scholarship Application Form and submit it along with your admissions application.</p>
+          <a href="#" class="btn btn-primary mt-3">Download Scholarship Form</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="section-underline"></div>
+        <p class="section-description">Find answers to common questions about our admissions process</p>
+      </div>
+    </div>
+    
+    <div class="row mt-5">
+      <div class="col-lg-10 mx-auto">
+        <div class="accordion" id="admissionsFAQ">
+          <!-- FAQ 1 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                What is the age requirement for admission?
+              </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#admissionsFAQ">
+              <div class="accordion-body">
+                <p>The age requirements for different grades are as follows:</p>
+                <ul>
+                  <li>Grade 1: 5+ years as of June 1st of the academic year</li>
+                  <li>Grade 2: 6+ years as of June 1st of the academic year</li>
+                  <li>And so on for higher grades</li>
+                </ul>
+                <p>A 30-day relaxation in the age criteria may be considered in exceptional cases.</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- FAQ 2 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Is there a waiting list if all seats are filled?
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#admissionsFAQ">
+              <div class="accordion-body">
+                <p>Yes, we maintain a waiting list for each grade level. If a seat becomes available, we contact families on the waiting list in order of their application date. The waiting list is valid for the current academic year only.</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- FAQ 3 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Can my child join in the middle of the academic year?
+              </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#admissionsFAQ">
+              <div class="accordion-body">
+                <p>Mid-year admissions are considered on a case-by-case basis, subject to seat availability and the student's academic record. Students transferring due to parent relocation are given priority for mid-year admissions.</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- FAQ 4 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                What is the student-teacher ratio at Kapadia High School?
+              </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#admissionsFAQ">
+              <div class="accordion-body">
+                <p>We maintain a student-teacher ratio of 20:1 to ensure personalized attention for each student. Our class sizes typically range from 25-30 students, with additional teaching assistants for lower grades.</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- FAQ 5 -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFive">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                Are there any additional fees apart from those mentioned in the fee structure?
+              </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#admissionsFAQ">
+              <div class="accordion-body">
+                <p>The fee structure covers all regular academic and co-curricular activities. However, there might be additional charges for:</p>
+                <ul>
+                  <li>Optional educational trips and excursions</li>
+                  <li>Specialized coaching for competitive exams</li>
+                  <li>Advanced level sports training</li>
+                  <li>External examinations and certifications</li>
+                </ul>
+                <p>Parents will be notified well in advance about any additional expenses.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h2>Have More Questions?</h2>
+        <p>Our admissions team is here to help you navigate the admissions process and answer any questions you may have. Feel free to reach out to us via phone, email, or by visiting our campus.</p>
+        <div class="contact-info">
+          <div class="info-item">
+            <i class="fa fa-envelope"></i>
+            <span>admissions@kapadiahighschool.edu.in</span>
+          </div>
+          <div class="info-item">
+            <i class="fa fa-phone"></i>
+            <span>+91 79 2345 6789</span>
+          </div>
+          <div class="info-item">
+            <i class="fa fa-clock-o"></i>
+            <span>Monday to Friday: 9:00 AM - 4:00 PM</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 text-center text-lg-end">
+        <a href="{% url 'contact' %}" class="btn btn-primary contact-btn">Contact Admissions Office</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

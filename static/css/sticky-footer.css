@@ -1,0 +1,74 @@
+/* 
+ * Sticky Footer Solution
+ * This file provides a comprehensive solution for keeping the footer at the bottom
+ * of the page, even when content is minimal.
+ */
+
+/* Basic page structure */
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Use viewport height to ensure full page coverage */
+  margin: 0;
+  padding: 0;
+}
+
+/* Main content area should grow to push footer down */
+main {
+  flex: 1 0 auto; /* Grow and don't shrink */
+  width: 100%;
+  padding-bottom: 2rem; /* Space before footer */
+  position: relative;
+  z-index: 1;
+}
+
+/* Footer styling for sticky positioning */
+.footer {
+  flex-shrink: 0; /* Prevent footer from shrinking */
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  margin-top: auto; /* Push to bottom when content is short */
+  background-color: #003264;
+  color: white;
+  padding: 40px 0 20px;
+  border-top: 5px solid #F4C430;
+}
+
+/* Fix for pages with minimal content */
+.content-wrapper {
+  min-height: calc(100vh - 300px); /* Adjust based on header/footer height */
+}
+
+/* Fix for iOS Safari and other mobile browsers */
+@supports (-webkit-touch-callout: none) {
+  body {
+    /* The hack for Safari */
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Ensure carousel container doesn't affect layout flow */
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+/* Media queries for responsive adjustments */
+@media (max-width: 768px) {
+  main {
+    padding-bottom: 1rem;
+  }
+  
+  .footer {
+    padding: 30px 0 15px;
+  }
+}

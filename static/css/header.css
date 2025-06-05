@@ -1,0 +1,176 @@
+/* Header and Navbar Styling */
+.header-logo {
+  height: 100px; /* Base size for desktop */
+  width: auto; /* Maintain aspect ratio */
+  max-width: 100%; /* Ensure it doesn't overflow container */
+  object-fit: contain; /* Ensure the image fits without stretching */
+  transition: transform 0.3s ease;
+  margin-right: 15px;
+  user-select: none; /* Prevent text selection */
+  -webkit-user-drag: none; /* Prevent dragging in WebKit browsers */
+  -khtml-user-drag: none; /* Prevent dragging in Konqueror */
+  -moz-user-drag: none; /* Prevent dragging in Firefox */
+  -o-user-drag: none; /* Prevent dragging in Opera */
+  pointer-events: none; /* Disable pointer events on the image */
+  image-rendering: -webkit-optimize-contrast; /* Improve rendering in Chrome */
+  image-rendering: crisp-edges; /* Improve rendering in Firefox */
+}
+
+.header-logo:hover {
+  transform: scale(1.05);
+}
+
+/* Logo container to handle clicks while logo remains protected */
+.logo-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  pointer-events: auto; /* Enable pointer events on the container */
+  padding: 5px 0; /* Add some padding to give the logo more space */
+}
+
+.navbar {
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  background-color: #003264;
+  padding: 0.5rem 1rem; /* Adjust padding to give more height */
+  min-height: 110px; /* Set minimum height to accommodate the logo */
+}
+
+/* Responsive adjustments for the logo */
+@media (max-width: 991.98px) {
+  .header-logo {
+    height: 80px; /* Slightly smaller on tablets */
+  }
+  .navbar {
+    min-height: 90px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .header-logo {
+    height: 70px; /* Even smaller on mobile */
+  }
+  .navbar {
+    min-height: 80px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .header-logo {
+    height: 60px; /* Smallest on very small devices */
+    margin-right: 10px;
+  }
+  .navbar {
+    min-height: 70px;
+    padding: 0.3rem 0.8rem;
+  }
+}
+
+.navbar .nav-link {
+  color: white !important;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  color: #ffcc00 !important;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 10px 0;
+}
+
+.dropdown-item {
+  padding: 8px 20px;
+  color: #374151;
+  transition: all 0.3s ease;
+}
+
+.dropdown-item:hover, 
+.dropdown-item:focus {
+  background-color: #f0f4f8;
+  color: #003264;
+  transform: translateX(5px);
+}
+
+.dropdown-toggle::after {
+  margin-left: 8px;
+  vertical-align: middle;
+  color: #ffcc00;
+}
+
+.admission-btn {
+  background-color: #ffcc00;
+  color: #003264;
+  font-weight: bold;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.admission-btn:hover {
+  background-color: #fff;
+  color: #003264;
+  transform: scale(1.05);
+}
+
+/* Navbar toggler for mobile */
+.navbar-toggler {
+  border: none;
+  padding: 0;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.navbar-toggler .fa {
+  color: #fff;
+}
+
+/* Dropdown show/hide styling for JavaScript enhancement */
+.dropdown-menu.show {
+  animation: fadeIn 0.3s ease;
+  transform-origin: top center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .navbar-collapse {
+    background-color: #003264;
+    padding: 15px;
+    border-radius: 0 0 8px 8px;
+  }
+  
+  .dropdown-menu {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+  }
+  
+  .dropdown-item {
+    color: #fff;
+  }
+  
+  .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffcc00;
+  }
+}

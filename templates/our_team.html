@@ -1,0 +1,275 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Our Team - Kapadia High School{% endblock %}
+
+{% block page_css %}
+<link href="{% static 'css/our_team.css' %}" rel='stylesheet' type='text/css'>
+{% endblock page_css %}
+
+{% block content %}
+<!-- Page Header -->
+<div class="team-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="page-title"><i class="fa fa-users"></i> Our Team</h1>
+        <div class="title-underline"></div>
+        <p class="lead">Meet the Dedicated Professionals Behind Kapadia High School</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Leadership Section -->
+<section class="leadership-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-title">Leadership</h2>
+        <div class="section-underline"></div>
+        <p class="section-description">Our school is led by experienced educators committed to excellence in education.</p>
+      </div>
+    </div>
+    
+    <div class="row mt-5 justify-content-center">
+      <!-- Principal -->
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="team-card">
+          <div class="team-image">
+            <img src="https://via.placeholder.com/400x500?text=Principal" alt="Principal" class="img-fluid">
+          </div>
+          <div class="team-info">
+            <h3>Dr. Rajesh Kapadia</h3>
+            <div class="team-position">Principal</div>
+            <div class="team-underline"></div>
+            <p>With over 25 years of experience in education, Dr. Kapadia leads our institution with vision and dedication to academic excellence.</p>
+            <div class="team-contact">
+              <a href="mailto:principal@kapadiahighschool.com"><i class="fa fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Vice Principal -->
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="team-card">
+          <div class="team-image">
+            <img src="https://via.placeholder.com/400x500?text=Vice+Principal" alt="Vice Principal" class="img-fluid">
+          </div>
+          <div class="team-info">
+            <h3>Mrs. Priya Sharma</h3>
+            <div class="team-position">Vice Principal</div>
+            <div class="team-underline"></div>
+            <p>Mrs. Sharma oversees academic programs and student development initiatives with her expertise in educational psychology.</p>
+            <div class="team-contact">
+              <a href="mailto:vp@kapadiahighschool.com"><i class="fa fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Administrative Director -->
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="team-card">
+          <div class="team-image">
+            <img src="https://via.placeholder.com/400x500?text=Admin+Director" alt="Administrative Director" class="img-fluid">
+          </div>
+          <div class="team-info">
+            <h3>Mr. Anand Patel</h3>
+            <div class="team-position">Administrative Director</div>
+            <div class="team-underline"></div>
+            <p>Mr. Patel manages the operational aspects of our school, ensuring smooth functioning of all administrative processes.</p>
+            <div class="team-contact">
+              <a href="mailto:admin@kapadiahighschool.com"><i class="fa fa-envelope"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Department Heads Section -->
+<section class="department-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-title">Department Heads</h2>
+        <div class="section-underline"></div>
+        <p class="section-description">Our academic departments are led by experienced educators who bring expertise and passion to their subjects.</p>
+      </div>
+    </div>
+    
+    <div class="row mt-5">
+      <!-- Science Department -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="dept-card">
+          <div class="dept-icon">
+            <i class="fa fa-flask"></i>
+          </div>
+          <h4>Science Department</h4>
+          <div class="dept-underline"></div>
+          <h5>Dr. Meera Joshi</h5>
+          <p>Ph.D. in Physics with 15 years of teaching experience</p>
+        </div>
+      </div>
+      
+      <!-- Mathematics Department -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="dept-card">
+          <div class="dept-icon">
+            <i class="fa fa-calculator"></i>
+          </div>
+          <h4>Mathematics Department</h4>
+          <div class="dept-underline"></div>
+          <h5>Prof. Sunil Mehta</h5>
+          <p>M.Sc. in Mathematics with specialization in Applied Mathematics</p>
+        </div>
+      </div>
+      
+      <!-- Languages Department -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="dept-card">
+          <div class="dept-icon">
+            <i class="fa fa-book"></i>
+          </div>
+          <h4>Languages Department</h4>
+          <div class="dept-underline"></div>
+          <h5>Mrs. Anjali Desai</h5>
+          <p>M.A. in English Literature and certified language instructor</p>
+        </div>
+      </div>
+      
+      <!-- Social Sciences Department -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="dept-card">
+          <div class="dept-icon">
+            <i class="fa fa-globe"></i>
+          </div>
+          <h4>Social Sciences Department</h4>
+          <div class="dept-underline"></div>
+          <h5>Mr. Vikram Singh</h5>
+          <p>M.A. in History with research focus on Indian cultural heritage</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <!-- Computer Science Department -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="dept-card">
+          <div class="dept-icon">
+            <i class="fa fa-laptop"></i>
+          </div>
+          <h4>Computer Science Department</h4>
+          <div class="dept-underline"></div>
+          <h5>Mr. Rahul Verma</h5>
+          <p>M.Tech in Computer Science with industry experience</p>
+        </div>
+      </div>
+      
+      <!-- Arts Department -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="dept-card">
+          <div class="dept-icon">
+            <i class="fa fa-paint-brush"></i>
+          </div>
+          <h4>Arts Department</h4>
+          <div class="dept-underline"></div>
+          <h5>Ms. Kavita Rao</h5>
+          <p>Fine Arts graduate with expertise in multiple artistic mediums</p>
+        </div>
+      </div>
+      
+      <!-- Physical Education Department -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="dept-card">
+          <div class="dept-icon">
+            <i class="fa fa-futbol-o"></i>
+          </div>
+          <h4>Physical Education Department</h4>
+          <div class="dept-underline"></div>
+          <h5>Mr. Sanjay Kumar</h5>
+          <p>Former state-level athlete with specialization in sports coaching</p>
+        </div>
+      </div>
+      
+      <!-- Counseling Department -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="dept-card">
+          <div class="dept-icon">
+            <i class="fa fa-comments"></i>
+          </div>
+          <h4>Counseling Department</h4>
+          <div class="dept-underline"></div>
+          <h5>Dr. Neha Gupta</h5>
+          <p>Licensed psychologist specializing in adolescent development</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Support Staff Section -->
+<section class="support-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-title">Support Staff</h2>
+        <div class="section-underline"></div>
+        <p class="section-description">Our dedicated support staff ensures the smooth operation of all school functions.</p>
+      </div>
+    </div>
+    
+    <div class="row mt-5">
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="staff-card">
+          <h4>Administrative Office</h4>
+          <p>Our administrative team handles admissions, records, and day-to-day operations.</p>
+          <div class="staff-count">5 members</div>
+        </div>
+      </div>
+      
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="staff-card">
+          <h4>Library Staff</h4>
+          <p>Our librarians maintain our extensive collection and assist students with research.</p>
+          <div class="staff-count">3 members</div>
+        </div>
+      </div>
+      
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="staff-card">
+          <h4>IT Support</h4>
+          <p>Our IT team ensures all technology infrastructure runs smoothly for uninterrupted learning.</p>
+          <div class="staff-count">2 members</div>
+        </div>
+      </div>
+      
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="staff-card">
+          <h4>Maintenance Staff</h4>
+          <p>Our maintenance team keeps our campus clean, safe, and well-maintained for all.</p>
+          <div class="staff-count">8 members</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Join Our Team Section -->
+<section class="join-section">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <h2>Join Our Team</h2>
+        <p>We're always looking for passionate educators and support staff to join our school community. If you're interested in making a difference in students' lives, we'd love to hear from you.</p>
+      </div>
+      <div class="col-lg-4 text-center text-lg-end">
+        <a href="{% url 'contact' %}" class="btn btn-primary join-btn">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

@@ -1,0 +1,327 @@
+/* Contact Hero Section */
+.contact-hero {
+    position: relative;
+    background: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80') no-repeat center center;
+    background-size: cover;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.contact-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 50, 100, 0.9), rgba(0, 50, 100, 0.7));
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: #F4C430;
+    font-weight: 400;
+    position: relative;
+}
+
+/* Contact Info Section */
+.contact-info-section {
+    background-color: #FFFFFF;
+    padding: 80px 0 50px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 15px;
+}
+
+.section-underline {
+    height: 4px;
+    width: 80px;
+    background-color: #F4C430;
+    margin: 0 auto 25px;
+}
+
+.section-description {
+    font-size: 1.2rem;
+    color: #4B5563;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+}
+
+.contact-card {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #E5E7EB;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    border-color: #4DA8DA;
+}
+
+.contact-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #003264;
+    color: #F4C430;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 50, 100, 0.2);
+}
+
+.contact-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 15px;
+}
+
+.contact-card p {
+    font-size: 1.1rem;
+    color: #4B5563;
+    margin-bottom: 10px;
+}
+
+.contact-card a {
+    color: #4DA8DA;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-card a:hover {
+    color: #003264;
+    text-decoration: underline;
+}
+
+/* Form Section */
+.contact-form-section {
+    background-color: #F9FAFB;
+    padding: 80px 0;
+}
+
+.form-content {
+    padding: 30px;
+}
+
+.form-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #374151;
+    margin-bottom: 15px;
+}
+
+.form-underline {
+    height: 3px;
+    width: 60px;
+    background-color: #F4C430;
+    margin-bottom: 25px;
+}
+
+.form-description {
+    font-size: 1.1rem;
+    color: #4B5563;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #E5E7EB;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #374151;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #4DA8DA;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(77, 168, 218, 0.2);
+}
+
+.btn-submit {
+    background-color: #003264;
+    color: #FFFFFF;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #F4C430;
+    color: #003264;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-image-container {
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Map Section */
+.map-section {
+    background-color: #FFFFFF;
+    padding: 80px 0;
+}
+
+.map-tabs {
+    margin-top: 20px;
+}
+
+.map-tab-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.map-tab-btn {
+    background-color: #FFFFFF;
+    color: #374151;
+    border: 2px solid #E5E7EB;
+    padding: 12px 25px;
+    margin: 0 10px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.map-tab-btn:hover, .map-tab-btn.active {
+    background-color: #003264;
+    border-color: #003264;
+    color: #FFFFFF;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.map-tab-content {
+    margin-top: 20px;
+}
+
+.map-container {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #E5E7EB;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .form-content {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-hero {
+        height: 300px;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .map-tab-buttons {
+        flex-wrap: wrap;
+    }
+    
+    .map-tab-btn {
+        margin: 5px;
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .contact-hero {
+        height: 250px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .map-tab-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .map-tab-btn {
+        width: 80%;
+        margin: 5px 0;
+    }
+}

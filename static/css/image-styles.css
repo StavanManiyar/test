@@ -1,0 +1,183 @@
+/* Custom styles for image display across the website */
+
+/* Carousel image handling */
+.carousel-item {
+    position: relative;
+    height: 500px; /* Fixed height for carousel */
+    overflow: hidden;
+    background-color: #000;
+}
+
+.carousel-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+}
+
+.carousel-item.active img {
+    opacity: 1;
+}
+
+/* Custom carousel controls */
+.carousel-control-custom {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    z-index: 5;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-control-custom:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-control-prev-custom {
+    left: 20px;
+}
+
+.carousel-control-next-custom {
+    right: 20px;
+}
+
+.carousel-control-custom i {
+    font-size: 20px;
+    color: white;
+}
+
+/* Celebration images */
+.celebration-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.celebration-card:hover .celebration-image {
+    transform: scale(1.03);
+}
+
+/* Gallery images */
+.gallery-item {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Modal gallery images */
+.modal-gallery .carousel-item {
+    height: 70vh;
+}
+
+.modal-gallery .carousel-item img {
+    max-height: 100%;
+    object-fit: contain;
+    background-color: #000;
+}
+
+/* Gallery thumbnails */
+.gallery-thumbnails {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+.gallery-thumbnail {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    margin-right: 5px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.gallery-thumbnail.active {
+    opacity: 1;
+    border-color: #0d6efd;
+}
+
+/* Image loading animation */
+.image-loading {
+    position: relative;
+}
+
+.image-loading::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+    z-index: 1;
+}
+
+.image-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    border: 3px solid #ccc;
+    border-top-color: #0d6efd;
+    border-radius: 50%;
+    z-index: 2;
+    animation: spin 1s linear infinite;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .carousel-item {
+        height: 300px;
+    }
+    
+    .celebration-image {
+        height: 200px;
+    }
+    
+    .gallery-item {
+        height: 200px;
+    }
+    
+    .modal-gallery .carousel-item {
+        height: 50vh;
+    }
+}

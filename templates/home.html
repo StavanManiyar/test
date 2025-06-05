@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block page_css %}
+<link href="{% static 'css/home.css' %}" rel="stylesheet">
+<link href="{% static 'css/celebrations.css' %}" rel="stylesheet">
+{% endblock page_css %}
+
+{% block carousel %}
+{% include 'carousel.html' %}
+{% endblock carousel %}
+
+{% block content %}
+
+<!--About us -->
+<div class="about-home-section">
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-4">
+        <h2 class="section-title">About Our School</h2>
+        <div class="title-underline"></div>
+      </div>
+    </div>
+    <div class="row gy-4 align-items-center">
+      <div class="col-12 col-lg-6">
+        <div class="about-image-container">
+          <img class="img-fluid" loading="lazy"
+            src="https://media.istockphoto.com/id/1369754239/photo/university-student-in-white-background-stock-photo.jpg?s=612x612&w=0&k=20&c=LjFVDfjusWBjYTNliHV9DyXfApPGc8DmgBGEtfVgQ0Q="
+            alt="Students">
+        </div>
+      </div>
+      <div class="col-12 col-lg-6">
+        <div class="about-content">
+          <h3>Excellence in Education Since 1956</h3>
+          <div class="content-underline"></div>
+          <p>Kapadia High School was founded in 1956, starting with a modest group of students eager to learn. Over the years, our institution has grown into a vibrant educational center, nurturing a diverse array of students who shine brightly both locally and internationally.</p>
+          <p>Situated in the heart of the community, Kapadia High School is a co-educational English medium school dedicated to fostering academic excellence and personal growth in a supportive environment.</p>
+          <a href="{% url 'aboutSchool' %}" class="view-all-btn mt-3">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+<!--about us end-->
+
+<!-- Celebrations Section -->
+<section class="celebrations-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-4">
+        <h2 class="celebrations-title">School Celebrations</h2>
+        <div class="celebrations-underline"></div>
+        <p class="celebrations-subtitle">Celebrating festivals and special occasions that enrich our school culture</p>
+      </div>
+    </div>
+    <div class="row">
+      {% if celebration %}
+        {% for celebration in celebration|slice:":3" %}
+          <div class="col-lg-4 col-md-6 mb-4">
+            <a href="{% url 'gallery' %}?category={{ celebration.celebration_type }}" class="text-decoration-none">
+              <div class="celebration-card">
+                <div class="celebration-img-container">
+                  <img src="{{ celebration.get_image_url }}" alt="{{ celebration.festivalname }}" class="celebration-img">
+                  <div class="celebration-date">{{ celebration.date|date:"d M Y" }}</div>
+                </div>
+                <div class="celebration-content">
+                  <h3 class="celebration-name">{{ celebration.festivalname }}</h3>
+                </div>
+              </div>
+            </a>
+          </div>
+        {% endfor %}
+      {% else %}
+        <!-- Default celebrations if none in database -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <a href="{% url 'gallery' %}?category=festival" class="text-decoration-none">
+            <div class="celebration-card">
+              <div class="celebration-img-container">
+                <img src="https://images.unsplash.com/photo-1602631985686-1bb0e6a8696e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Diwali Celebration" class="celebration-img">
+                <div class="celebration-date">15 Nov 2024</div>
+              </div>
+              <div class="celebration-content">
+                <h3 class="celebration-name">Diwali Celebration</h3>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <a href="{% url 'gallery' %}?category=national" class="text-decoration-none">
+            <div class="celebration-card">
+              <div class="celebration-img-container">
+                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Republic Day" class="celebration-img">
+                <div class="celebration-date">26 Jan 2025</div>
+              </div>
+              <div class="celebration-content">
+                <h3 class="celebration-name">Republic Day</h3>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <a href="{% url 'gallery' %}?category=annual" class="text-decoration-none">
+            <div class="celebration-card">
+              <div class="celebration-img-container">
+                <img src="https://images.unsplash.com/photo-1472162072942-cd5147eb3902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Annual Day" class="celebration-img">
+                <div class="celebration-date">10 Dec 2024</div>
+            </div>
+            <div class="celebration-content">
+              <h3 class="celebration-name">Annual Day</h3>
+            </div>
+          </div>
+          </a>
+        </div>
+      {% endif %}
+    </div>
+    <div class="row">
+      <div class="col-12 text-center">
+        <a href="{% url 'gallery' %}" class="view-all-btn">View All Celebrations</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--gallery section-->
+<section class="gallery-home-section py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-4">
+        <h2 class="section-title">Our Gallery</h2>
+        <div class="title-underline"></div>
+        <p class="section-description">Glimpses of our vibrant campus life and student activities</p>
+      </div>
+    </div>
+    <div class="row gallery-grid">
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="gallery-card">
+          <div class="gallery-img-container">
+            <img src="https://cdn.prod.website-files.com/65de4c6f8dc17dc010f8ac55/65de4e8fa9dea47849bfe182_654d5b61a2e2c9c8d6cdeae7_5f57c46384cca65e79589acf_students1.jpeg" alt="Gallery Image 1" class="img-fluid">
+            <div class="gallery-overlay">
+              <a href="{% url 'gallery' %}" class="gallery-link"><i class="fa fa-search-plus"></i></a>
+            </div>
+          </div>
+          <div class="gallery-card-body">
+            <h5>Academic Excellence</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="gallery-card">
+          <div class="gallery-img-container">
+            <img src="https://cdn.prod.website-files.com/65de4c6f8dc17dc010f8ac55/65de4e8fa9dea47849bfe182_654d5b61a2e2c9c8d6cdeae7_5f57c46384cca65e79589acf_students1.jpeg" alt="Gallery Image 2" class="img-fluid">
+            <div class="gallery-overlay">
+              <a href="{% url 'gallery' %}" class="gallery-link"><i class="fa fa-search-plus"></i></a>
+            </div>
+          </div>
+          <div class="gallery-card-body">
+            <h5>Sports Activities</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="gallery-card">
+          <div class="gallery-img-container">
+            <img src="https://cdn.prod.website-files.com/65de4c6f8dc17dc010f8ac55/65de4e8fa9dea47849bfe182_654d5b61a2e2c9c8d6cdeae7_5f57c46384cca65e79589acf_students1.jpeg" alt="Gallery Image 3" class="img-fluid">
+            <div class="gallery-overlay">
+              <a href="{% url 'gallery' %}" class="gallery-link"><i class="fa fa-search-plus"></i></a>
+            </div>
+          </div>
+          <div class="gallery-card-body">
+            <h5>Cultural Events</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-12 text-center">
+        <a href="{% url 'gallery' %}" class="view-all-btn">View Full Gallery</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock content %}

@@ -1,0 +1,448 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Blog - Kapadia High School{% endblock %}
+
+{% block page_css %}
+<link href="{% static 'css/blog.css' %}" rel='stylesheet' type='text/css'>
+{% endblock page_css %}
+
+{% block content %}
+<!-- Page Header -->
+<div class="blog-header">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="page-title"><i class="fa fa-file-text"></i> School Blog</h1>
+        <div class="title-underline"></div>
+        <p class="lead">Stay Updated with the Latest News and Events at Kapadia High School</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Introduction Section -->
+<section class="intro-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="intro-content">
+          <p>Welcome to the Kapadia High School blog, your source for the latest news, events, and stories from our vibrant school community.</p>
+          <p>From academic achievements to extracurricular activities, student spotlights to educational insights, our blog keeps you connected with everything happening at Kapadia High School.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Posts Section -->
+<section class="featured-posts-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-title">Featured Posts</h2>
+        <div class="section-underline"></div>
+        <p class="section-description">Highlighted stories and news from our school community</p>
+      </div>
+    </div>
+    
+    <div class="row mt-5">
+      <!-- Featured Post 1 -->
+      <div class="col-lg-8 mb-5">
+        <div class="featured-post">
+          <div class="post-image">
+            <img src="https://via.placeholder.com/800x400?text=Annual+Day+Celebration" alt="Annual Day Celebration" class="img-fluid">
+            <div class="post-date">
+              <span class="day">15</span>
+              <span class="month">Mar</span>
+              <span class="year">2023</span>
+            </div>
+          </div>
+          <div class="post-content">
+            <div class="post-categories">
+              <span class="post-category">Events</span>
+              <span class="post-category">Celebrations</span>
+            </div>
+            <h3 class="post-title">Annual Day Celebration: A Grand Success</h3>
+            <p class="post-excerpt">The Annual Day celebration of Kapadia High School was held with great enthusiasm and fervor. Students showcased their talents through various cultural performances...</p>
+            <div class="post-meta">
+              <span class="post-author"><i class="fa fa-user"></i> Admin</span>
+              <span class="post-comments"><i class="fa fa-comments"></i> 12 Comments</span>
+            </div>
+            <a href="#" class="read-more-btn">Read More <i class="fa fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Featured Post Sidebar -->
+      <div class="col-lg-4 mb-5">
+        <div class="sidebar-featured-posts">
+          <!-- Sidebar Post 1 -->
+          <div class="sidebar-post">
+            <div class="sidebar-post-image">
+              <img src="https://via.placeholder.com/100x100?text=Science+Exhibition" alt="Science Exhibition" class="img-fluid">
+            </div>
+            <div class="sidebar-post-content">
+              <h4 class="sidebar-post-title">Science Exhibition Showcases Student Innovation</h4>
+              <div class="sidebar-post-meta">
+                <span class="post-date"><i class="fa fa-calendar"></i> March 10, 2023</span>
+              </div>
+              <a href="#" class="read-more-link">Read More</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar Post 2 -->
+          <div class="sidebar-post">
+            <div class="sidebar-post-image">
+              <img src="https://via.placeholder.com/100x100?text=Sports+Day" alt="Sports Day" class="img-fluid">
+            </div>
+            <div class="sidebar-post-content">
+              <h4 class="sidebar-post-title">Sports Day: Celebrating Athletic Excellence</h4>
+              <div class="sidebar-post-meta">
+                <span class="post-date"><i class="fa fa-calendar"></i> February 25, 2023</span>
+              </div>
+              <a href="#" class="read-more-link">Read More</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar Post 3 -->
+          <div class="sidebar-post">
+            <div class="sidebar-post-image">
+              <img src="https://via.placeholder.com/100x100?text=Teacher's+Day" alt="Teacher's Day" class="img-fluid">
+            </div>
+            <div class="sidebar-post-content">
+              <h4 class="sidebar-post-title">Teacher's Day: Honoring Our Educators</h4>
+              <div class="sidebar-post-meta">
+                <span class="post-date"><i class="fa fa-calendar"></i> February 15, 2023</span>
+              </div>
+              <a href="#" class="read-more-link">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Recent Posts Section -->
+<section class="recent-posts-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-title">Recent Posts</h2>
+        <div class="section-underline"></div>
+        <p class="section-description">Stay updated with the latest news and events</p>
+      </div>
+    </div>
+    
+    <div class="row mt-5">
+      <!-- Post 1 -->
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="blog-post">
+          <div class="post-image">
+            <svg width="600" height="400" xmlns="http://www.w3.org/2000/svg" class="img-fluid">
+              <rect width="600" height="400" fill="#4a7fb5"/>
+              <text x="300" y="200" font-family="Arial" font-size="32" fill="white" text-anchor="middle">Career Counseling</text>
+              <path d="M150,150 C150,116.9 176.9,90 210,90 C243.1,90 270,116.9 270,150 C270,183.1 243.1,210 210,210 C176.9,210 150,183.1 150,150 Z" fill="none" stroke="white" stroke-width="8"/>
+              <path d="M210,230 L210,310 M180,270 L240,270" stroke="white" stroke-width="8"/>
+              <path d="M330,140 L450,140 M330,170 L450,170 M330,200 L400,200" stroke="white" stroke-width="8"/>
+            </svg>
+            <div class="post-date">
+              <span class="day">05</span>
+              <span class="month">Mar</span>
+            </div>
+          </div>
+          <div class="post-content">
+            <div class="post-categories">
+              <span class="post-category">Guidance</span>
+            </div>
+            <h3 class="post-title">Career Counseling Session for Class 10 Students</h3>
+            <p class="post-excerpt">A career counseling session was organized for Class 10 students to help them make informed decisions about their future academic paths...</p>
+            <div class="post-meta">
+              <span class="post-author"><i class="fa fa-user"></i> Admin</span>
+              <span class="post-comments"><i class="fa fa-comments"></i> 5 Comments</span>
+            </div>
+            <a href="#" class="read-more-btn">Read More <i class="fa fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Post 2 -->
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="blog-post">
+          <div class="post-image">
+            <svg width="600" height="400" xmlns="http://www.w3.org/2000/svg" class="img-fluid">
+              <rect width="600" height="400" fill="#e67e22"/>
+              <text x="300" y="200" font-family="Arial" font-size="32" fill="white" text-anchor="middle">Art Competition</text>
+              <path d="M150,120 L210,80 L270,120 L270,220 L150,220 Z" fill="none" stroke="white" stroke-width="8"/>
+              <circle cx="350" cy="150" r="40" fill="none" stroke="white" stroke-width="8"/>
+              <path d="M350,190 L350,280 M320,220 L380,220" stroke="white" stroke-width="8"/>
+              <path d="M420,120 L450,150 L420,180" stroke="white" stroke-width="8"/>
+            </svg>
+            <div class="post-date">
+              <span class="day">28</span>
+              <span class="month">Feb</span>
+            </div>
+          </div>
+          <div class="post-content">
+            <div class="post-categories">
+              <span class="post-category">Arts</span>
+              <span class="post-category">Competition</span>
+            </div>
+            <h3 class="post-title">Inter-School Art Competition Results</h3>
+            <p class="post-excerpt">Our students showcased their artistic talents at the Inter-School Art Competition and brought home several awards in various categories...</p>
+            <div class="post-meta">
+              <span class="post-author"><i class="fa fa-user"></i> Admin</span>
+              <span class="post-comments"><i class="fa fa-comments"></i> 8 Comments</span>
+            </div>
+            <a href="#" class="read-more-btn">Read More <i class="fa fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Post 3 -->
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="blog-post">
+          <div class="post-image">
+            <svg width="600" height="400" xmlns="http://www.w3.org/2000/svg" class="img-fluid">
+              <rect width="600" height="400" fill="#27ae60"/>
+              <text x="300" y="200" font-family="Arial" font-size="32" fill="white" text-anchor="middle">Educational Trip</text>
+              <path d="M150,250 L250,250 L250,180 L200,150 L150,180 Z" fill="none" stroke="white" stroke-width="8"/>
+              <circle cx="350" cy="180" r="50" fill="none" stroke="white" stroke-width="8"/>
+              <path d="M320,160 L380,160 M320,200 L380,200" stroke="white" stroke-width="8"/>
+              <path d="M150,250 L150,300 M250,250 L250,300" stroke="white" stroke-width="8"/>
+              <path d="M450,150 C470,170 470,230 450,250" stroke="white" stroke-width="8" fill="none"/>
+            </svg>
+            <div class="post-date">
+              <span class="day">20</span>
+              <span class="month">Feb</span>
+            </div>
+          </div>
+          <div class="post-content">
+            <div class="post-categories">
+              <span class="post-category">Field Trip</span>
+              <span class="post-category">Learning</span>
+            </div>
+            <h3 class="post-title">Educational Trip to Science Museum</h3>
+            <p class="post-excerpt">Class 8 students visited the Science Museum as part of their educational trip, where they learned about various scientific principles through interactive exhibits...</p>
+            <div class="post-meta">
+              <span class="post-author"><i class="fa fa-user"></i> Admin</span>
+              <span class="post-comments"><i class="fa fa-comments"></i> 3 Comments</span>
+            </div>
+            <a href="#" class="read-more-btn">Read More <i class="fa fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Post 4 -->
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="blog-post">
+          <div class="post-image">
+            <svg width="600" height="400" xmlns="http://www.w3.org/2000/svg" class="img-fluid">
+              <rect width="600" height="400" fill="#8e44ad"/>
+              <text x="300" y="200" font-family="Arial" font-size="32" fill="white" text-anchor="middle">Parent Teacher Meeting</text>
+              <circle cx="200" cy="150" r="40" fill="none" stroke="white" stroke-width="8"/>
+              <path d="M200,190 L200,280 M170,220 L230,220" stroke="white" stroke-width="8"/>
+              <circle cx="400" cy="150" r="40" fill="none" stroke="white" stroke-width="8"/>
+              <path d="M400,190 L400,280 M370,220 L430,220" stroke="white" stroke-width="8"/>
+              <path d="M250,150 L350,150" stroke="white" stroke-width="8"/>
+            </svg>
+            <div class="post-date">
+              <span class="day">15</span>
+              <span class="month">Feb</span>
+            </div>
+          </div>
+          <div class="post-content">
+            <div class="post-categories">
+              <span class="post-category">Parents</span>
+              <span class="post-category">Communication</span>
+            </div>
+            <h3 class="post-title">Parent-Teacher Meeting: Strengthening the Partnership</h3>
+            <p class="post-excerpt">The quarterly Parent-Teacher Meeting was held to discuss student progress and strengthen the partnership between parents and teachers...</p>
+            <div class="post-meta">
+              <span class="post-author"><i class="fa fa-user"></i> Admin</span>
+              <span class="post-comments"><i class="fa fa-comments"></i> 7 Comments</span>
+            </div>
+            <a href="#" class="read-more-btn">Read More <i class="fa fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Post 5 -->
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="blog-post">
+          <div class="post-image">
+            <svg width="600" height="400" xmlns="http://www.w3.org/2000/svg" class="img-fluid">
+              <rect width="600" height="400" fill="#3498db"/>
+              <text x="300" y="200" font-family="Arial" font-size="32" fill="white" text-anchor="middle">Math Olympiad</text>
+              <path d="M200,150 L250,100 L300,150 L250,200 Z" fill="none" stroke="white" stroke-width="8"/>
+              <path d="M350,120 L450,120 M350,150 L450,150 M350,180 L450,180" stroke="white" stroke-width="8"/>
+              <path d="M200,250 L300,250 M250,220 L250,280" stroke="white" stroke-width="8"/>
+              <path d="M350,250 L450,250" stroke="white" stroke-width="8"/>
+            </svg>
+            <div class="post-date">
+              <span class="day">10</span>
+              <span class="month">Feb</span>
+            </div>
+          </div>
+          <div class="post-content">
+            <div class="post-categories">
+              <span class="post-category">Academics</span>
+              <span class="post-category">Competition</span>
+            </div>
+            <h3 class="post-title">Students Excel in Mathematics Olympiad</h3>
+            <p class="post-excerpt">Our students participated in the National Mathematics Olympiad and secured top positions, showcasing their exceptional mathematical skills...</p>
+            <div class="post-meta">
+              <span class="post-author"><i class="fa fa-user"></i> Admin</span>
+              <span class="post-comments"><i class="fa fa-comments"></i> 4 Comments</span>
+            </div>
+            <a href="#" class="read-more-btn">Read More <i class="fa fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Post 6 -->
+      <div class="col-lg-4 col-md-6 mb-5">
+        <div class="blog-post">
+          <div class="post-image">
+            <svg width="600" height="400" xmlns="http://www.w3.org/2000/svg" class="img-fluid">
+              <rect width="600" height="400" fill="#c0392b"/>
+              <text x="300" y="200" font-family="Arial" font-size="32" fill="white" text-anchor="middle">New Library Books</text>
+              <path d="M150,150 L150,250 L200,270 L200,170 Z" fill="none" stroke="white" stroke-width="8"/>
+              <path d="M210,170 L210,270 L260,290 L260,190 Z" fill="none" stroke="white" stroke-width="8"/>
+              <path d="M270,190 L270,290 L320,310 L320,210 Z" fill="none" stroke="white" stroke-width="8"/>
+              <path d="M330,210 L330,310 L380,330 L380,230 Z" fill="none" stroke="white" stroke-width="8"/>
+              <path d="M390,230 L390,330 L440,350 L440,250 Z" fill="none" stroke="white" stroke-width="8"/>
+            </svg>
+            <div class="post-date">
+              <span class="day">05</span>
+              <span class="month">Feb</span>
+            </div>
+          </div>
+          <div class="post-content">
+            <div class="post-categories">
+              <span class="post-category">Library</span>
+              <span class="post-category">Resources</span>
+            </div>
+            <h3 class="post-title">New Books Added to School Library Collection</h3>
+            <p class="post-excerpt">Our school library has been enriched with a new collection of books across various genres to promote reading habits among students...</p>
+            <div class="post-meta">
+              <span class="post-author"><i class="fa fa-user"></i> Admin</span>
+              <span class="post-comments"><i class="fa fa-comments"></i> 2 Comments</span>
+            </div>
+            <a href="#" class="read-more-btn">Read More <i class="fa fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Pagination -->
+    <div class="row">
+      <div class="col-lg-12">
+        <nav aria-label="Page navigation">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true"><i class="fa fa-angle-left"></i></a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#"><i class="fa fa-angle-right"></i></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Blog Categories Section -->
+<section class="blog-categories-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-title">Blog Categories</h2>
+        <div class="section-underline"></div>
+        <p class="section-description">Explore our blog posts by categories</p>
+      </div>
+    </div>
+    
+    <div class="row mt-5">
+      <!-- Category 1 -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="category-card">
+          <div class="category-icon">
+            <i class="fa fa-graduation-cap"></i>
+          </div>
+          <h3 class="category-title">Academics</h3>
+          <p class="category-count">15 Posts</p>
+          <a href="#" class="category-link">View Posts <i class="fa fa-arrow-right"></i></a>
+        </div>
+      </div>
+      
+      <!-- Category 2 -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="category-card">
+          <div class="category-icon">
+            <i class="fa fa-trophy"></i>
+          </div>
+          <h3 class="category-title">Sports</h3>
+          <p class="category-count">12 Posts</p>
+          <a href="#" class="category-link">View Posts <i class="fa fa-arrow-right"></i></a>
+        </div>
+      </div>
+      
+      <!-- Category 3 -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="category-card">
+          <div class="category-icon">
+            <i class="fa fa-music"></i>
+          </div>
+          <h3 class="category-title">Arts & Culture</h3>
+          <p class="category-count">10 Posts</p>
+          <a href="#" class="category-link">View Posts <i class="fa fa-arrow-right"></i></a>
+        </div>
+      </div>
+      
+      <!-- Category 4 -->
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="category-card">
+          <div class="category-icon">
+            <i class="fa fa-calendar"></i>
+          </div>
+          <h3 class="category-title">Events</h3>
+          <p class="category-count">18 Posts</p>
+          <a href="#" class="category-link">View Posts <i class="fa fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter Section -->
+<section class="newsletter-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="newsletter-container">
+          <div class="row align-items-center">
+            <div class="col-lg-6">
+              <h3 class="newsletter-title">Subscribe to Our Newsletter</h3>
+              <p class="newsletter-description">Stay updated with the latest news, events, and announcements from Kapadia High School.</p>
+            </div>
+            <div class="col-lg-6">
+              <form class="newsletter-form">
+                <div class="input-group">
+                  <input type="email" class="form-control" placeholder="Enter your email address" required>
+                  <button class="btn btn-primary" type="submit">Subscribe</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}
