@@ -5,6 +5,31 @@
 
 {% block page_css %}
 <link href="{% static 'css/campus.css' %}" rel='stylesheet' type='text/css'>
+<style>
+    .campus-photo-card {
+        transition: transform 0.3s ease;
+    }
+    
+    .campus-photo-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .campus-thumbnail {
+        height: 200px;
+        object-fit: cover;
+        width: 100%;
+        transition: transform 0.3s ease;
+    }
+    
+    .campus-thumbnail:hover {
+        transform: scale(1.05);
+    }
+    
+    .photo-title {
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+</style>
 {% endblock page_css %}
 
 {% block content %}
@@ -40,7 +65,7 @@
             
             <!-- <div class="board-buttons mt-4">
                 <a href="#" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#cbseModal">CBSE</a>
-                <a href="#" class="btn btn-primary">LC</a>
+                <!-- <a href="#" class="btn btn-primary">LC</a> -->
             </div> -->
         </div>
     </div>
@@ -83,6 +108,47 @@
                     <a href="#" class="facility-btn">GREEN CAMPUS</a>
                 </div>
             </div>
+        </div>
+    </div>
+    
+    <!-- Campus Photo Gallery Section -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <h2 class="text-center mb-4">Campus Photo Gallery</h2>
+            {% if featured_photos %}
+                <div class="row">
+                    {% for photo in featured_photos %}
+                        <div class="col-md-4 col-lg-3 mb-4">
+                            <div class="campus-photo-card">
+                                <img src="{{ photo.get_image_url }}" 
+                                     alt="{{ photo.caption|default:photo.title|default:'Kadi Campus Photo' }}" 
+                                     class="img-fluid rounded shadow campus-thumbnail">
+                                {% if photo.title %}
+                                    <div class="photo-title mt-2 text-center">
+                                        <small class="text-muted">{{ photo.title }}</small>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                
+                <!-- View All Photos Button -->
+                <div class="text-center mt-4">
+                    <a href="{% url 'gallery' %}?branch=kadi" class="btn btn-primary btn-lg">
+                        <i class="fas fa-images me-2"></i>
+                        View All Kadi Campus Photos
+                    </a>
+                </div>
+            {% else %}
+                <div class="text-center py-5">
+                    <i class="fas fa-camera fa-3x text-muted mb-3"></i>
+                    <p class="text-muted">Campus photos will be uploaded soon!</p>
+                    <a href="{% url 'gallery' %}?branch=kadi" class="btn btn-outline-primary">
+                        View Photo Gallery
+                    </a>
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>

@@ -11,26 +11,9 @@
     opacity: 0; 
     z-index: -1;
   }
-  
-  /* Prevent layout shifts during image loading */
-  .carousel-container {
-    min-height: 500px;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  /* Ensure the carousel maintains its dimensions before images load */
-  #homeCarousel {
-    height: 100%;
-  }
-  
-  /* Prevent footer jump during page load */
-  body {
-    overflow-y: scroll; /* Always show scrollbar to prevent layout shifts */
-  }
 </style>
 
-<div class="carousel-container" id="home-carousel-container" style="display: block !important; visibility: visible !important;">
+<div class="carousel-container" id="home-carousel-container">
   <!-- Carousel Indicators -->
   <div id="homeCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <div class="carousel-indicators">

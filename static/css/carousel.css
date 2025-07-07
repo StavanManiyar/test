@@ -7,9 +7,7 @@
   padding: 0; /* Remove any padding */
   overflow: hidden; /* Hide any overflow */
   max-width: 100vw; /* Prevent exceeding viewport width */
-  display: block !important; /* Ensure block display with !important */
-  height: 500px; /* Fixed height to prevent layout shifts */
-  visibility: visible !important; /* Ensure visibility */
+  display: block; /* Ensure block display */
 }
 
 /* Carousel Animation */

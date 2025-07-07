@@ -1,11 +1,11 @@
 /* Header and Navbar Styling */
 .header-logo {
-  height: 100px; /* Base size for desktop */
+  height: 180px; /* Increased size for desktop - was 130px */
   width: auto; /* Maintain aspect ratio */
   max-width: 100%; /* Ensure it doesn't overflow container */
   object-fit: contain; /* Ensure the image fits without stretching */
   transition: transform 0.3s ease;
-  margin-right: 15px;
+  margin-right: 20px; /* Increased margin */
   user-select: none; /* Prevent text selection */
   -webkit-user-drag: none; /* Prevent dragging in WebKit browsers */
   -khtml-user-drag: none; /* Prevent dragging in Konqueror */
@@ -32,8 +32,8 @@
 .navbar {
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   background-color: #003264;
-  padding: 0.5rem 1rem; /* Adjust padding to give more height */
-  min-height: 110px; /* Set minimum height to accommodate the logo */
+  padding: 0.8rem 1rem; /* Increased padding for larger logo */
+  min-height: 140px; /* Increased minimum height to accommodate the larger logo */
 }
 
 /* Responsive adjustments for the logo */

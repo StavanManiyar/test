@@ -27,36 +27,31 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-5u@dx-_uxrvvj$%)$@bi!$w15a+$hi@^l-9i##lspe(rgr28jj')
+SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # Set DEBUG based on environment variable
 DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
-# Configure hosts for Render deployment
-ALLOWED_HOSTS = ['localhost', '127.0.0.1','kapadiahighschool.com']
+# Configure hosts for VPS deployment
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'kapadiahighschool.com', 'www.kapadiahighschool.com']
 
-# Configure RENDER_EXTERNAL_HOSTNAME for Render
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-if RENDER_EXTERNAL_HOSTNAME:
-    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+# Add VPS server IP if provided
+VPS_SERVER_IP = os.environ.get('VPS_SERVER_IP')
+if VPS_SERVER_IP:
+    ALLOWED_HOSTS.append(VPS_SERVER_IP)
 
-# Add Render internal and external domains
-RENDER_EXTERNAL_URL = os.environ.get('RENDER_EXTERNAL_URL')
-if RENDER_EXTERNAL_URL:
-    ALLOWED_HOSTS.extend([RENDER_EXTERNAL_URL, f'*.{RENDER_EXTERNAL_URL}'])
-
-# In production, allow the Render assigned domain
-ALLOWED_HOSTS.extend(['.com'])
-
-# CSRF Trusted Origins for Render
+# CSRF Trusted Origins for VPS
 CSRF_TRUSTED_ORIGINS = [
     'https://kapadiahighschool.com',
     'https://www.kapadiahighschool.com',
-    # 'https://*.onrender.com',
     'http://localhost:8000',
     'http://127.0.0.1:8000',
 ]
+
+# Add VPS server IP to CSRF trusted origins if provided
+if VPS_SERVER_IP:
+    CSRF_TRUSTED_ORIGINS.extend([f'http://{VPS_SERVER_IP}', f'https://{VPS_SERVER_IP}'])
 
 
 # Application definition
@@ -115,21 +110,19 @@ if 'DATABASE_URL' in os.environ:
     db_url = os.environ.get('DATABASE_URL')
     # Check if it's PostgreSQL before applying SSL requirements
     if db_url.startswith('postgres'):
-        # Check if we're running on Render (internal hostname will be accessible)
-        is_on_render = os.environ.get('RENDER', '') == 'true' or 'RENDER_EXTERNAL_HOSTNAME' in os.environ
+        # Check if we're running on VPS (production)
+        is_production = not DEBUG or os.environ.get('VPS_SERVER_IP')
         
         # Log database connection attempt
         print(f"Connecting to PostgreSQL database: {db_url.split('@')[1].split('/')[0]}")
         
-        # Only try to connect to PostgreSQL if we're on Render
-        # Otherwise, fall back to SQLite for local development
-        if is_on_render:
-            # Production database (PostgreSQL on Render)
+        if is_production:
+            # Production database (PostgreSQL on VPS)
             DATABASES = {
                 'default': dj_database_url.parse(
-                    config('DATABASE_URL'),
+                    os.environ.get('DATABASE_URL'),
                     conn_max_age=600,
-                    ssl_require=True
+                    ssl_require=False  # VPS doesn't need SSL for local PostgreSQL
                 )
             }
             
@@ -139,7 +132,7 @@ if 'DATABASE_URL' in os.environ:
             print(f"Database host: {DATABASES['default']['HOST']}")
         else:
             # We're local but have a DATABASE_URL - use SQLite instead
-            print("Not on Render but DATABASE_URL is set. Using SQLite for local development.")
+            print("Development mode with DATABASE_URL set. Using SQLite for local development.")
             DATABASES = {
                 'default': {
                     'ENGINE': 'django.db.backends.sqlite3',
@@ -163,26 +156,16 @@ else:
         }
     }
 
-# Supabase configuration
-SUPABASE_URL = os.environ.get('SUPABASE_URL', '')
-SUPABASE_KEY = os.environ.get('SUPABASE_KEY', '')
-USE_SUPABASE_STORAGE = bool(SUPABASE_URL and SUPABASE_KEY)
-
-# Media files (uploads)
+# Media files configuration for VPS hosting
 MEDIA_ROOT = os.path.join(BASE_DIR, 'gallery')
 MEDIA_URL = '/gallery/'
 
-# Configure media storage
+# Use local file storage (recommended for VPS hosting)
 DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 
-# Log Supabase status
-if USE_SUPABASE_STORAGE:
-    print(f"Supabase URL: {SUPABASE_URL[:10]}...")
-    print(f"Supabase Key: {SUPABASE_KEY[:10]}...")
-    print("Supabase storage is enabled")
-else:
-    print("WARNING: Supabase storage is not configured. Using local file storage only.")
-    print("Set SUPABASE_URL and SUPABASE_KEY environment variables to enable Supabase storage.")
+# Optional: Supabase configuration (only if you choose to use it)
+
+# Override to use Supabase if both URL and KEY are provided and you want to use it
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -252,6 +235,91 @@ TEMPLATE_LOADERS = [
         'django.template.loaders.app_directories.Loader',
     ]),
 ]
+
+# Security Settings for Production
+if not DEBUG:
+    # Security middleware settings
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    X_FRAME_OPTIONS = 'DENY'
+    
+    # HTTPS settings (uncomment when SSL is configured)
+    # SECURE_SSL_REDIRECT = True
+    # SECURE_HSTS_SECONDS = 31536000
+    # SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    # SECURE_HSTS_PRELOAD = True
+    # SESSION_COOKIE_SECURE = True
+    # CSRF_COOKIE_SECURE = True
+
+# Database Performance Settings
+DATABASES['default']['CONN_MAX_AGE'] = 600
+
+# Database options based on engine
+if 'postgresql' in DATABASES['default']['ENGINE']:
+    DATABASES['default']['OPTIONS'] = {
+        'OPTIONS': {
+            '-c default_statistics_target=50',
+            '-c maintenance_work_mem=256MB',
+            '-c checkpoint_completion_target=0.9',
+            '-c wal_buffers=16MB',
+            '-c shared_preload_libraries=pg_stat_statements',
+        }
+    }
+elif 'mysql' in DATABASES['default']['ENGINE']:
+    DATABASES['default']['OPTIONS'] = {
+        'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        'charset': 'utf8mb4',
+    }
+elif 'sqlite' in DATABASES['default']['ENGINE']:
+    DATABASES['default']['OPTIONS'] = {
+        'timeout': 60,
+        'check_same_thread': False,
+    }
+
+# Logging Configuration
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'logs', 'django.log'),
+            'formatter': 'verbose',
+        },
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+        },
+    },
+    'root': {
+        'handlers': ['console', 'file'],
+        'level': 'INFO',
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'kapadiaschool': {
+            'handlers': ['file', 'console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+    },
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

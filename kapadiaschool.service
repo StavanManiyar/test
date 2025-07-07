@@ -1,0 +1,19 @@
+[Unit]
+Description=Kapadia School Django Application
+After=network.target
+
+[Service]
+Type=forking
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/kapadiaschool
+Environment=PATH=/var/www/kapadiaschool/venv/bin
+Environment=DJANGO_SETTINGS_MODULE=kapadiaschool.settings
+ExecStart=/var/www/kapadiaschool/venv/bin/gunicorn --bind 127.0.0.1:8000 --workers 3 --daemon --pid /var/www/kapadiaschool/kapadiaschool.pid kapadiaschool.wsgi:application
+ExecReload=/bin/kill -HUP $MAINPID
+ExecStop=/bin/kill -TERM $MAINPID
+PIDFile=/var/www/kapadiaschool/kapadiaschool.pid
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

@@ -1,6 +1,8 @@
 from django.contrib import admin
-from khschool.models import Celebration, CarouselImage, CelebrationPhoto, Gallery, GalleryImage
-from khschool.forms import CelebrationForm, CelebrationPhotoForm, CarouselImageForm, GalleryForm, GalleryImageForm
+from django.contrib.auth.models import User, Group
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from khschool.models import Celebration, CarouselImage, CelebrationPhoto, Gallery, GalleryImage, BranchPhoto
+from khschool.forms import CelebrationForm, CelebrationPhotoForm, CarouselImageForm, GalleryForm, GalleryImageForm, BranchPhotoForm
 
 # Register your models here.
 
@@ -75,13 +77,26 @@ class GalleryImageInline(admin.TabularInline):
 @admin.register(Gallery)
 class GalleryAdmin(admin.ModelAdmin):
     form = GalleryForm
-    list_display = ('name', 'category', 'date_created', 'image_count_display', 'preview_thumbnail', 'is_featured')
-    list_filter = ('category', 'date_created', 'is_featured')
+    list_display = ('name', 'campus_branch', 'category', 'show_on_campus_page', 'date_created', 'image_count_display', 'preview_thumbnail', 'is_featured')
+    list_filter = ('campus_branch', 'category', 'show_on_campus_page', 'date_created', 'is_featured')
     search_fields = ('name', 'description')
     date_hierarchy = 'date_created'
     ordering = ('-date_created',)
     readonly_fields = ('thumbnail_url',)
     inlines = [GalleryImageInline]
+    
+    # Add bulk actions for campus management
+    actions = ['mark_as_campus_featured', 'unmark_as_campus_featured']
+    
+    def mark_as_campus_featured(self, request, queryset):
+        queryset.update(show_on_campus_page=True)
+        self.message_user(request, f'{queryset.count()} galleries marked as campus featured.')
+    mark_as_campus_featured.short_description = 'Mark selected galleries as campus featured'
+    
+    def unmark_as_campus_featured(self, request, queryset):
+        queryset.update(show_on_campus_page=False)
+        self.message_user(request, f'{queryset.count()} galleries unmarked as campus featured.')
+    unmark_as_campus_featured.short_description = 'Unmark selected galleries as campus featured'
     
     def preview_thumbnail(self, obj):
         thumbnail_url = obj.get_thumbnail_url()
@@ -116,3 +131,54 @@ class GalleryImageAdmin(admin.ModelAdmin):
     
     preview_image.allow_tags = True
     preview_image.short_description = 'Image Preview'
+
+
+@admin.register(BranchPhoto)
+class BranchPhotoAdmin(admin.ModelAdmin):
+    form = BranchPhotoForm
+    list_display = ('title', 'campus_branch', 'category', 'is_featured', 'order', 'date_uploaded', 'preview_image')
+    list_filter = ('campus_branch', 'category', 'is_featured', 'date_uploaded')
+    list_editable = ('is_featured', 'order')
+    search_fields = ('title', 'description')
+    readonly_fields = ('image_url', 'date_uploaded')
+    date_hierarchy = 'date_uploaded'
+    ordering = ('campus_branch', 'order', '-date_uploaded')
+    
+    # Add bulk actions for campus management
+    actions = ['mark_as_featured', 'unmark_as_featured']
+    
+    def mark_as_featured(self, request, queryset):
+        queryset.update(is_featured=True)
+        self.message_user(request, f'{queryset.count()} photos marked as featured.')
+    mark_as_featured.short_description = 'Mark selected photos as featured'
+    
+    def unmark_as_featured(self, request, queryset):
+        queryset.update(is_featured=False)
+        self.message_user(request, f'{queryset.count()} photos unmarked as featured.')
+    unmark_as_featured.short_description = 'Unmark selected photos as featured'
+    
+    def preview_image(self, obj):
+        image_url = obj.get_image_url()
+        if image_url:
+            return f'<img src="{image_url}" width="50" height="50" style="object-fit: cover; border-radius: 5px;" />'
+        return 'No Image'
+    
+    preview_image.allow_tags = True
+    preview_image.short_description = 'Photo Preview'
+    
+    # Organize by campus in admin
+    fieldsets = (
+        ('Campus Information', {
+            'fields': ('campus_branch', 'title', 'description')
+        }),
+        ('Photo Details', {
+            'fields': ('category', 'image', 'image_url')
+        }),
+        ('Display Settings', {
+            'fields': ('is_featured', 'order')
+        }),
+        ('Date Information', {
+            'fields': ('date_uploaded',),
+            'classes': ('collapse',)
+        })
+    )

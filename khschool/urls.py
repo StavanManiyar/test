@@ -10,16 +10,13 @@ urlpatterns = [
     path('chattral/',views.chattral,name='chattral'),
     path('iffco/',views.iffco,name='iffco'),
     path('kadi/',views.kadi,name='kadi'),
-    path('success-stories/',views.success_stories,name='success_stories'),
-    path('facilities/',views.facilities,name='facilities'),
-    path('admissions/',views.admissions,name='admissions'),
-    path('institutional-goals/',views.institutional_goals,name='institutional_goals'),
-    path('our-team/',views.our_team,name='our_team'),
-    path('team/',views.team,name='team'),
-    path('activities/',views.activities,name='activities'),
-    path('testimonials/',views.testimonials,name='testimonials'),
-    path('blog/',views.blog,name='blog'),
-    path('achievements/',views.achievements,name='achievements'),
+    
+    # Campus gallery URLs
+    path('chandkheda/photos/',views.chandkheda_gallery_view,name='chandkheda_gallery'),
+    path('chattral/photos/',views.chattral_gallery_view,name='chattral_gallery'),
+    path('iffco/photos/',views.iffco_gallery_view,name='iffco_gallery'),
+    path('kadi/photos/',views.kadi_gallery_view,name='kadi_gallery'),
+    
     path('image-test/',views.image_test,name='image_test'),
 ]
 

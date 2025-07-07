@@ -12,11 +12,6 @@ html {
   overflow-x: hidden;
 }
 
-html {
-  height: 100%;
-  scroll-behavior: smooth;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -28,8 +23,6 @@ body {
   background: #f4f4f9;
   position: relative;
   overflow-x: hidden;
-  height: 100%;
-  overflow-y: scroll; /* Always show scrollbar to prevent layout shifts */
 }
 .gallery img {
   max-width: 100%;
@@ -50,7 +43,7 @@ h4,
 }
 
 .navbar-brand img {
-  max-height: 60px;
+  max-height: 130px;
 }
 
 .nav-link {
@@ -118,11 +111,9 @@ h4,
 
 /* Footer Styles */
 .footer {
-  background: #003264 !important;
+  background: #003264;
   color: #fff;
   padding: 40px 0;
-  margin-top: 0;
-  border-top: none;
   animation: slideInUp 1.5s ease-in-out;
 }
 

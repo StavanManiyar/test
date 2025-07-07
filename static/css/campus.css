@@ -67,9 +67,9 @@ h1.campus-title:after {
 }
 
 .board-buttons .btn {
-    background-color: #003264;
-    color: #FFFFFF;
-    border: none;
+    background-color: #003264 !important;
+    color: #FFFFFF !important;
+    border: none !important;
     padding: 10px 25px;
     border-radius: 30px;
     font-weight: 600;
@@ -77,10 +77,43 @@ h1.campus-title:after {
 }
 
 .board-buttons .btn:hover {
-    background-color: #F4C430;
-    color: #003264;
+    background-color: #F4C430 !important;
+    color: #003264 !important;
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Override Bootstrap primary button colors for campus pages */
+.btn-primary {
+    background-color: #003264 !important;
+    border-color: #003264 !important;
+    color: #FFFFFF !important;
+}
+
+.btn-primary:hover {
+    background-color: #F4C430 !important;
+    border-color: #F4C430 !important;
+    color: #003264 !important;
+}
+
+.btn-primary:focus, 
+.btn-primary:active, 
+.btn-primary.active {
+    background-color: #F4C430 !important;
+    border-color: #F4C430 !important;
+    color: #003264 !important;
+    box-shadow: none !important;
+}
+
+.btn-outline-primary {
+    color: #003264 !important;
+    border-color: #003264 !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: #003264 !important;
+    border-color: #003264 !important;
+    color: #FFFFFF !important;
 }
 
 /* Modal Styling */

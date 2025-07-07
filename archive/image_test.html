@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Supabase Image Test</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/image-styles.css">
+    <style>
+        .test-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #dee2e6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Supabase Image Test Page</h1>
+        
+        <div class="section">
+            <h2>Carousel Images</h2>
+            <div class="row">
+
+                                {% for slide in carousel_images %}
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <img src="{{ slide.get_image_url }}" class="test-image" alt="{{ slide.title }}" onerror="this.src='/static/images/placeholder.jpg';">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ slide.title }}</h5>
+                            <p class="card-text small text-muted">{{ slide.get_image_url }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Celebrations</h2>
+            <div class="row">
+
+                                {% for celebration in celebrations %}
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <img src="{{ celebration.get_image_url }}" class="test-image" alt="{{ celebration.festivalname }}" onerror="this.src='/static/images/placeholder.jpg';">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ celebration.festivalname }}</h5>
+                            <p class="card-text"><span class="badge bg-secondary">{{ celebration.celebration_type }}</span></p>
+                            <p class="card-text small text-muted">{{ celebration.get_image_url }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Celebration Additional Photos</h2>
+            <div class="row">
+                {% for celebration in celebrations %}
+                    {% for photo in celebration.additional_photos %}
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <img src="{{ photo.get_photo_url }}" class="test-image" alt="{{ celebration.festivalname }} - Photo" onerror="this.src='/static/images/placeholder.jpg';">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ celebration.festivalname }}</h5>
+                                <p class="card-text">{{ photo.caption|default:'Additional Photo' }}</p>
+                                <p class="card-text"><span class="badge bg-secondary">{{ celebration.celebration_type }}</span></p>
+                                <p class="card-text small text-muted">{{ photo.get_photo_url }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

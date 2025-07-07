@@ -52,3 +52,38 @@ ENV/
 # OS specific
 .DS_Store
 Thumbs.db
+
+# VPS Deployment
+*.pid
+logs/
+*.sql
+*.tar.gz
+*.zip
+
+# SSL Certificates
+*.crt
+*.key
+*.pem
+
+# Backup files
+*.bak
+*.backup
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Gallery uploads (keep structure but ignore content)
+gallery/festival/images/*
+gallery/festival/gallery/*
+gallery/carousel/images/*
+gallery/thumbnails/*
+!gallery/festival/images/.gitkeep
+!gallery/festival/gallery/.gitkeep
+!gallery/carousel/images/.gitkeep
+!gallery/thumbnails/.gitkeep
