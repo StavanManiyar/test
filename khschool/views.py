@@ -33,6 +33,9 @@ def home(request):
     if 'khschool_carouselimage' in tables:
         try:
             carousel_images = CarouselImage.objects.filter(is_active=True).order_by('order')
+            print(f"DEBUG: Found {len(carousel_images)} carousel images")
+            for img in carousel_images:
+                print(f"DEBUG: Carousel image - ID: {img.id}, Title: {img.title}, Image: {img.image}, URL: {img.get_image_url()}")
         except Exception as e:
             # Log the error but continue with empty list
             print(f"Error loading carousel images: {str(e)}")
@@ -415,3 +418,58 @@ def image_test(request):
     }
     
     return render(request, 'image_test.html', context)
+
+# Additional page views
+def admissions(request):
+    return render(request, 'admissions.html')
+
+def facilities(request):
+    return render(request, 'facilities.html')
+
+def activities(request):
+    return render(request, 'activities.html')
+
+def celebrations(request):
+    # Get celebrations from database if available
+    celebrations = []
+    try:
+        celebrations = Celebration.objects.all().order_by('-date')
+        for celebration in celebrations:
+            celebration.additional_photos = celebration.celebrationphoto_set.all().order_by('order')
+    except Exception as e:
+        print(f"Error loading celebrations: {str(e)}")
+    
+    context = {
+        'celebrations': celebrations
+    }
+    return render(request, 'celebrations.html', context)
+
+def testimonials(request):
+    return render(request, 'testimonials.html')
+
+def our_team(request):
+    return render(request, 'our_team.html')
+
+def success_stories(request):
+    return render(request, 'success_stories.html')
+
+def achievements(request):
+    return render(request, 'achievements.html')
+
+def blog(request):
+    return render(request, 'blog.html')
+
+def campus_gallery(request):
+    return render(request, 'campus_gallery.html')
+
+def carousel(request):
+    return render(request, 'carousel.html')
+
+def gallery_new(request):
+    return render(request, 'gallery_new.html')
+
+def institutional_goals(request):
+    return render(request, 'institutional_goals.html')
+
+def team(request):
+    return render(request, 'team.html')

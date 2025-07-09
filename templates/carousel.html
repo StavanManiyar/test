@@ -33,9 +33,9 @@
         <div class="carousel-item {% if forloop.first %}active{% endif %}">
           <div class="carousel-image-container">
             {% if image.get_image_url %}
-              <img src="{{ image.get_image_url }}" class="carousel-image" alt="{{ image.title }}" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" crossorigin="anonymous" fetchpriority="{% if forloop.first %}high{% else %}low{% endif %}">
+              <img src="{{ image.get_image_url }}" class="carousel-image" alt="{{ image.title }}" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" crossorigin="anonymous" fetchpriority="{% if forloop.first %}high{% else %}low{% endif %}" onerror="this.src='{% static 'images/caro1.jpg' %}'">
             {% else %}
-              <img src="{% static 'images/placeholder.jpg' %}" class="carousel-image" alt="Placeholder" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" fetchpriority="{% if forloop.first %}high{% else %}low{% endif %}">
+              <img src="{% static 'images/caro1.jpg' %}" class="carousel-image" alt="{{ image.title }}" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" fetchpriority="{% if forloop.first %}high{% else %}low{% endif %}">
             {% endif %}
           </div>
           <div class="carousel-caption">
@@ -50,7 +50,7 @@
         <!-- Default carousel items if no images in database -->
         <div class="carousel-item active">
           <div class="carousel-image-container">
-            <img src="{% static 'images/placeholder.jpg' %}" class="carousel-image" alt="School Campus" loading="eager">
+            <img src="{% static 'images/caro1.jpg' %}" class="carousel-image" alt="School Campus" loading="eager">
           </div>
           <div class="carousel-caption">
             <h2>Welcome to Kapadia High School</h2>
@@ -60,7 +60,7 @@
         </div>
         <div class="carousel-item">
           <div class="carousel-image-container">
-            <img src="{% static 'images/placeholder.jpg' %}" class="carousel-image" alt="Students" loading="eager">
+            <img src="{% static 'images/caro1.jpg' %}" class="carousel-image" alt="Students" loading="eager">
           </div>
           <div class="carousel-caption">
             <h2>Excellence in Education</h2>
@@ -70,7 +70,7 @@
         </div>
         <div class="carousel-item">
           <div class="carousel-image-container">
-            <img src="{% static 'images/placeholder.jpg' %}" class="carousel-image" alt="School Activities" loading="eager">
+            <img src="{% static 'images/caro1.jpg' %}" class="carousel-image" alt="School Activities" loading="eager">
           </div>
           <div class="carousel-caption">
             <h2>Holistic Development</h2>

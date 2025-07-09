@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Celebrations - Kapadia High School{% endblock %}
+
+{% block page_css %}
+<link href="{% static 'css/celebrations.css' %}" rel="stylesheet">
+{% endblock page_css %}
+
+{% block content %}
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h1 class="display-4 fw-bold text-primary">School Celebrations</h1>
+                <div class="title-underline mx-auto"></div>
+                <p class="lead text-muted">Celebrating festivals and special occasions that enrich our school culture</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            {% if celebrations %}
+                {% for celebration in celebrations %}
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="celebration-card h-100">
+                            <div class="celebration-img-container">
+                                {% if celebration.get_image_url %}
+                                    <img src="{{ celebration.get_image_url }}" alt="{{ celebration.festivalname }}" class="celebration-img">
+                                {% else %}
+                                    <img src="{% static 'images/placeholder.jpg' %}" alt="{{ celebration.festivalname }}" class="celebration-img">
+                                {% endif %}
+                                <div class="celebration-date">{{ celebration.date|date:"d M Y" }}</div>
+                                <div class="celebration-type">{{ celebration.get_celebration_type_display }}</div>
+                            </div>
+                            <div class="celebration-content p-4">
+                                <h3 class="celebration-name mb-3">{{ celebration.festivalname }}</h3>
+                                {% if celebration.description %}
+                                    <p class="celebration-description">{{ celebration.description|truncatewords:20 }}</p>
+                                {% endif %}
+                                {% if celebration.additional_photos %}
+                                    <div class="additional-photos mt-3">
+                                        <small class="text-muted">
+                                            <i class="fa fa-camera"></i> {{ celebration.additional_photos|length }} photo{{ celebration.additional_photos|length|pluralize }}
+                                        </small>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-12 text-center">
+                    <div class="no-celebrations py-5">
+                        <i class="fa fa-calendar-o fa-3x text-muted mb-3"></i>
+                        <h3 class="text-muted">No celebrations available</h3>
+                        <p class="text-muted">Check back soon for updates on our school celebrations!</p>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<style>
+.title-underline {
+    width: 100px;
+    height: 3px;
+    background-color: #003264;
+    margin: 20px auto;
+}
+
+.celebration-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.celebration-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.celebration-img-container {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.celebration-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.celebration-card:hover .celebration-img {
+    transform: scale(1.05);
+}
+
+.celebration-date {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: rgba(0, 50, 100, 0.9);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.celebration-type {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgba(244, 196, 48, 0.9);
+    color: #003264;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.celebration-name {
+    color: #003264;
+    font-weight: bold;
+}
+
+.celebration-description {
+    color: #666;
+    line-height: 1.6;
+}
+
+.additional-photos {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.no-celebrations {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    margin: 50px 0;
+}
+
+@media (max-width: 768px) {
+    .celebration-img-container {
+        height: 200px;
+    }
+}
+</style>
+{% endblock content %}

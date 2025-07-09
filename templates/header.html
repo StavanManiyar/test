@@ -21,11 +21,11 @@
             aria-haspopup="true" aria-expanded="false">Who are we?</a>
           <div class="dropdown-menu" aria-labelledby="aboutDropdown">
             <a class="dropdown-item" href="{% url 'aboutSchool' %}">About-us</a>
-            <a class="dropdown-item" href="#">Institutional Goals</a>
+            <a class="dropdown-item" href="{% url 'institutional_goals' %}">Institutional Goals</a>
             <a class="dropdown-item" href="{% url 'brief' %}">Executive Brief</a>
-            <a class="dropdown-item" href="#">Our Team</a>
-            <a class="dropdown-item" href="#">Success Stories</a>
-            <a class="dropdown-item" href="#">Testimonials</a>
+            <a class="dropdown-item" href="{% url 'our_team' %}">Our Team</a>
+            <a class="dropdown-item" href="{% url 'success_stories' %}">Success Stories</a>
+            <a class="dropdown-item" href="{% url 'testimonials' %}">Testimonials</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -42,8 +42,8 @@
           <a href="#" class="nav-link dropdown-toggle" id="developDropdown" role="button" data-bs-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">Development</a>
           <div class="dropdown-menu" aria-labelledby="developDropdown">
-            <a class="dropdown-item" href="#">Activites</a>
-            <a class="dropdown-item" href="#">Blog</a>
+            <a class="dropdown-item" href="{% url 'activities' %}">Activities</a>
+            <a class="dropdown-item" href="{% url 'blog' %}">Blog</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -51,15 +51,15 @@
             aria-haspopup="true" aria-expanded="false">Student Showcase</a>
           <div class="dropdown-menu" aria-labelledby="studentDropdown">
             <a class="dropdown-item" href="{% url 'gallery' %}">Gallery</a>
-            <a class="dropdown-item" href="#">Achievements</a>
-            <a class="dropdown-item" href="#">Other than Academics</a>
+            <a class="dropdown-item" href="{% url 'achievements' %}">Achievements</a>
+            <a class="dropdown-item" href="{% url 'activities' %}">Other than Academics</a>
           </div>
         </li>
         <li class="nav-item">
           <a href="{% url 'contact' %}" class="nav-link">Contact Us</a>
         </li>
       </ul>
-      <a href="#" class="btn btn-primary px-4 py-2 d-none d-lg-block admission-btn">Admission Open</a>
+      <a href="{% url 'admissions' %}" class="btn btn-primary px-4 py-2 d-none d-lg-block admission-btn">Admission Open</a>
     </div>
   </nav>
 </div>

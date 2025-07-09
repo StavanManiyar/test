@@ -33,25 +33,49 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # Set DEBUG based on environment variable
 DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
-# Configure hosts for VPS deployment
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'kapadiahighschool.com', 'www.kapadiahighschool.com']
+# Configure hosts for different environments
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'testserver']
 
-# Add VPS server IP if provided
+# Check if we're on Render
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+    print(f"Render deployment detected: {RENDER_EXTERNAL_HOSTNAME}")
+    
+# Add VPS server IP if provided (for VPS deployment)
 VPS_SERVER_IP = os.environ.get('VPS_SERVER_IP')
 if VPS_SERVER_IP:
     ALLOWED_HOSTS.append(VPS_SERVER_IP)
+    ALLOWED_HOSTS.extend(['kapadiahighschool.com', 'www.kapadiahighschool.com'])
+    print(f"VPS deployment detected: {VPS_SERVER_IP}")
+    
+# If no specific environment detected, assume test/local
+if not RENDER_EXTERNAL_HOSTNAME and not VPS_SERVER_IP:
+    ALLOWED_HOSTS.append('test-p769.onrender.com')
+    print("Test/Local environment detected")
 
-# CSRF Trusted Origins for VPS
+# CSRF Trusted Origins for different environments
 CSRF_TRUSTED_ORIGINS = [
-    'https://kapadiahighschool.com',
-    'https://www.kapadiahighschool.com',
     'http://localhost:8000',
     'http://127.0.0.1:8000',
 ]
 
-# Add VPS server IP to CSRF trusted origins if provided
+# Add Render domain if on Render
+if RENDER_EXTERNAL_HOSTNAME:
+    CSRF_TRUSTED_ORIGINS.append(f'https://{RENDER_EXTERNAL_HOSTNAME}')
+    
+# Add VPS domains if on VPS
 if VPS_SERVER_IP:
-    CSRF_TRUSTED_ORIGINS.extend([f'http://{VPS_SERVER_IP}', f'https://{VPS_SERVER_IP}'])
+    CSRF_TRUSTED_ORIGINS.extend([
+        f'http://{VPS_SERVER_IP}',
+        f'https://{VPS_SERVER_IP}',
+        'https://kapadiahighschool.com',
+        'https://www.kapadiahighschool.com'
+    ])
+    
+# Add test domain if neither Render nor VPS
+if not RENDER_EXTERNAL_HOSTNAME and not VPS_SERVER_IP:
+    CSRF_TRUSTED_ORIGINS.append('https://test-p769.onrender.com')
 
 
 # Application definition
@@ -79,6 +103,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'khschool.middleware.AdminSecurityMiddleware',  # Custom admin security
 ]
 
 ROOT_URLCONF = 'kapadiaschool.urls'
@@ -121,23 +146,24 @@ if 'DATABASE_URL' in os.environ:
             DATABASES = {
                 'default': dj_database_url.parse(
                     os.environ.get('DATABASE_URL'),
-                    conn_max_age=600,
-                    ssl_require=False  # VPS doesn't need SSL for local PostgreSQL
+                    conn_max_age=600
                 )
             }
+            # Ensure no SSL requirement for local PostgreSQL
+            DATABASES['default']['OPTIONS'] = {'sslmode': 'disable'}
             
             # Print database settings for debugging
             print(f"Database engine: {DATABASES['default']['ENGINE']}")
             print(f"Database name: {DATABASES['default']['NAME']}")
             print(f"Database host: {DATABASES['default']['HOST']}")
         else:
-            # We're local but have a DATABASE_URL - use SQLite instead
-            print("Development mode with DATABASE_URL set. Using SQLite for local development.")
+            # Use PostgreSQL for local development if DATABASE_URL is set
             DATABASES = {
-                'default': {
-                    'ENGINE': 'django.db.backends.sqlite3',
-                    'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-                }
+                'default': dj_database_url.parse(
+                    os.environ.get('DATABASE_URL'),
+                    conn_max_age=600,
+                    ssl_require=False
+                )
             }
     else:
         # SQLite or other database with URL format
@@ -243,28 +269,34 @@ if not DEBUG:
     SECURE_CONTENT_TYPE_NOSNIFF = True
     X_FRAME_OPTIONS = 'DENY'
     
-    # HTTPS settings (uncomment when SSL is configured)
-    # SECURE_SSL_REDIRECT = True
-    # SECURE_HSTS_SECONDS = 31536000
-    # SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    # SECURE_HSTS_PRELOAD = True
-    # SESSION_COOKIE_SECURE = True
-    # CSRF_COOKIE_SECURE = True
+    # HTTPS settings (enable when SSL is configured on VPS)
+    SECURE_SSL_REDIRECT = os.environ.get('SECURE_SSL_REDIRECT', 'False').lower() == 'true'
+    SECURE_HSTS_SECONDS = int(os.environ.get('SECURE_HSTS_SECONDS', '31536000'))
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = os.environ.get('SECURE_HSTS_INCLUDE_SUBDOMAINS', 'False').lower() == 'true'
+    SECURE_HSTS_PRELOAD = os.environ.get('SECURE_HSTS_PRELOAD', 'False').lower() == 'true'
+    SESSION_COOKIE_SECURE = os.environ.get('SESSION_COOKIE_SECURE', 'False').lower() == 'true'
+    CSRF_COOKIE_SECURE = os.environ.get('CSRF_COOKIE_SECURE', 'False').lower() == 'true'
+else:
+    # Development settings - disable security features for local development
+    SECURE_SSL_REDIRECT = False
+    SECURE_HSTS_SECONDS = 0
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+    SECURE_HSTS_PRELOAD = False
+    SESSION_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
 
 # Database Performance Settings
 DATABASES['default']['CONN_MAX_AGE'] = 600
 
 # Database options based on engine
 if 'postgresql' in DATABASES['default']['ENGINE']:
-    DATABASES['default']['OPTIONS'] = {
-        'OPTIONS': {
-            '-c default_statistics_target=50',
-            '-c maintenance_work_mem=256MB',
-            '-c checkpoint_completion_target=0.9',
-            '-c wal_buffers=16MB',
-            '-c shared_preload_libraries=pg_stat_statements',
-        }
-    }
+    # Only set sslmode if not already set
+    if 'OPTIONS' not in DATABASES['default']:
+        DATABASES['default']['OPTIONS'] = {}
+    
+    # Ensure sslmode is disabled for local PostgreSQL
+    if 'sslmode' not in DATABASES['default']['OPTIONS']:
+        DATABASES['default']['OPTIONS']['sslmode'] = 'disable'
 elif 'mysql' in DATABASES['default']['ENGINE']:
     DATABASES['default']['OPTIONS'] = {
         'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",

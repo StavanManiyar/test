@@ -1,0 +1,455 @@
+{% load static %}
+<!-- Modern Hero Section with Parallax and Animations -->
+<section class="hero-section">
+    <div class="hero-background parallax-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h1 class="hero-title fade-in">
+                        <span class="typing-text" data-text="Welcome to Kapadia High School" data-speed="100"></span>
+                    </h1>
+                    <p class="hero-subtitle fade-in fade-in-delay-1">
+                        Excellence in Education Since 1956
+                    </p>
+                    <div class="hero-buttons fade-in fade-in-delay-2">
+                        <a href="{% url 'aboutSchool' %}" class="btn btn-primary btn-lg morph-button me-3">
+                            Learn More
+                        </a>
+                        <a href="{% url 'admissions' %}" class="btn btn-outline-light btn-lg morph-button">
+                            Admissions
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Floating Icons -->
+    <div class="floating-icons">
+        <div class="floating-icon floating" style="animation-delay: 0s;">
+            <i class="fa fa-graduation-cap"></i>
+        </div>
+        <div class="floating-icon floating" style="animation-delay: 1s;">
+            <i class="fa fa-book"></i>
+        </div>
+        <div class="floating-icon floating" style="animation-delay: 2s;">
+            <i class="fa fa-trophy"></i>
+        </div>
+    </div>
+    
+    <!-- Scroll Down Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-arrow bounce-in">
+            <i class="fa fa-chevron-down"></i>
+        </div>
+    </div>
+</section>
+
+<!-- Modern Statistics Section -->
+<section class="stats-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="stat-card scale-in hover-lift">
+                    <div class="stat-icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <div class="stat-number animated-counter" data-target="2500" data-duration="2000">0</div>
+                    <div class="stat-label">Students</div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="stat-card scale-in hover-lift" style="animation-delay: 0.2s;">
+                    <div class="stat-icon">
+                        <i class="fa fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="stat-number animated-counter" data-target="150" data-duration="2000">0</div>
+                    <div class="stat-label">Teachers</div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="stat-card scale-in hover-lift" style="animation-delay: 0.4s;">
+                    <div class="stat-icon">
+                        <i class="fa fa-trophy"></i>
+                    </div>
+                    <div class="stat-number animated-counter" data-target="68" data-duration="2000">0</div>
+                    <div class="stat-label">Years</div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="stat-card scale-in hover-lift" style="animation-delay: 0.6s;">
+                    <div class="stat-icon">
+                        <i class="fa fa-award"></i>
+                    </div>
+                    <div class="stat-number animated-counter" data-target="95" data-duration="2000">0</div>
+                    <div class="stat-label">% Success Rate</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modern Testimonials Slider -->
+<section class="testimonials-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="section-title scroll-fade-in">What Our Students Say</h2>
+                <div class="title-underline scroll-fade-in"></div>
+            </div>
+        </div>
+        <div class="testimonial-slider">
+            <div class="testimonial-slide active">
+                <div class="testimonial-content">
+                    <div class="testimonial-text">
+                        "Kapadia High School has provided me with excellent education and wonderful opportunities. The teachers are supportive and the environment is conducive to learning."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://via.placeholder.com/80x80" alt="Student" class="testimonial-avatar">
+                        <div class="author-info">
+                            <h5>Priya Sharma</h5>
+                            <span>Class 12 Graduate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-slide">
+                <div class="testimonial-content">
+                    <div class="testimonial-text">
+                        "The holistic approach to education at Kapadia High School helped me develop not just academically but also personally. I'm grateful for the experience."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://via.placeholder.com/80x80" alt="Student" class="testimonial-avatar">
+                        <div class="author-info">
+                            <h5>Arjun Patel</h5>
+                            <span>Class 10 Graduate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-navigation">
+                <button class="prev-btn"><i class="fa fa-chevron-left"></i></button>
+                <button class="next-btn"><i class="fa fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modern Features Grid -->
+<section class="features-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="section-title scroll-fade-in">Why Choose Us</h2>
+                <div class="title-underline scroll-fade-in"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="feature-card flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="feature-icon">
+                                <i class="fa fa-graduation-cap"></i>
+                            </div>
+                            <h4>Academic Excellence</h4>
+                            <p>Comprehensive curriculum designed for success</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h4>Academic Excellence</h4>
+                            <p>Our academic programs are designed to challenge and inspire students, preparing them for higher education and successful careers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="feature-card flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="feature-icon">
+                                <i class="fa fa-users"></i>
+                            </div>
+                            <h4>Expert Faculty</h4>
+                            <p>Experienced teachers dedicated to your success</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h4>Expert Faculty</h4>
+                            <p>Our qualified and experienced faculty members are committed to providing quality education and mentoring students.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="feature-card flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="feature-icon">
+                                <i class="fa fa-trophy"></i>
+                            </div>
+                            <h4>Modern Facilities</h4>
+                            <p>State-of-the-art infrastructure for learning</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h4>Modern Facilities</h4>
+                            <p>Our campus features modern classrooms, laboratories, library, and sports facilities to support comprehensive education.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Hero Section Styles */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: white;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120%;
+    height: 120%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 50, 100, 0.7);
+    z-index: -1;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.hero-buttons .btn {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.floating-icons {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.floating-icon {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 2rem;
+}
+
+.floating-icon:nth-child(1) {
+    top: 20%;
+    left: 10%;
+}
+
+.floating-icon:nth-child(2) {
+    top: 60%;
+    right: 15%;
+}
+
+.floating-icon:nth-child(3) {
+    bottom: 30%;
+    left: 20%;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.scroll-arrow {
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Stats Section */
+.stats-section {
+    background: #f8f9fa;
+}
+
+.stat-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.stat-icon {
+    font-size: 3rem;
+    color: #003264;
+    margin-bottom: 1rem;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #003264;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* Testimonials */
+.testimonials-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.testimonial-slider {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.testimonial-slide {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+}
+
+.testimonial-slide.active {
+    display: block;
+}
+
+.testimonial-text {
+    font-size: 1.3rem;
+    font-style: italic;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.testimonial-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.author-info h5 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.author-info span {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.testimonial-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.testimonial-navigation button {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.testimonial-navigation button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Features Section */
+.features-section {
+    background: white;
+}
+
+.feature-card {
+    margin-bottom: 2rem;
+}
+
+.flip-card-front {
+    background: #f8f9fa;
+    padding: 2rem;
+    text-align: center;
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: #003264;
+    margin-bottom: 1rem;
+}
+
+.feature-card h4 {
+    color: #003264;
+    margin-bottom: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .hero-buttons .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .testimonial-text {
+        font-size: 1.1rem;
+    }
+}
+</style>

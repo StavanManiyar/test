@@ -1,0 +1,516 @@
+{% load static %}
+<!-- Modern Gallery with Lightbox and Effects -->
+<section class="modern-gallery py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mb-5">
+                <h2 class="section-title scroll-fade-in">School Gallery</h2>
+                <div class="title-underline scroll-fade-in"></div>
+                <p class="section-description scroll-fade-in">Explore our vibrant campus life through images</p>
+            </div>
+        </div>
+        
+        <!-- Gallery Filter Buttons -->
+        <div class="row mb-4">
+            <div class="col-12 text-center">
+                <div class="gallery-filter">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="campus">Campus</button>
+                    <button class="filter-btn" data-filter="sports">Sports</button>
+                    <button class="filter-btn" data-filter="events">Events</button>
+                    <button class="filter-btn" data-filter="academics">Academics</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Gallery Grid -->
+        <div class="gallery-grid">
+            <!-- Campus Images -->
+            <div class="gallery-item" data-category="campus">
+                <div class="gallery-image-container image-overlay-effect">
+                    <img src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                         alt="School Campus" 
+                         class="gallery-image hover-lift" 
+                         data-full-src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h4>School Campus</h4>
+                            <p>Modern facilities and beautiful architecture</p>
+                            <button class="view-btn" onclick="openLightbox(this)">
+                                <i class="fa fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sports Images -->
+            <div class="gallery-item" data-category="sports">
+                <div class="gallery-image-container image-overlay-effect">
+                    <img src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                         alt="Sports Activities" 
+                         class="gallery-image hover-lift" 
+                         data-full-src="https://images.unsplash.com/photo-1544717297-fa95b6ee9643?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h4>Sports Activities</h4>
+                            <p>Physical fitness and team spirit</p>
+                            <button class="view-btn" onclick="openLightbox(this)">
+                                <i class="fa fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Events Images -->
+            <div class="gallery-item" data-category="events">
+                <div class="gallery-image-container image-overlay-effect">
+                    <img src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                         alt="School Events" 
+                         class="gallery-image hover-lift" 
+                         data-full-src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h4>Cultural Events</h4>
+                            <p>Celebrating diversity and creativity</p>
+                            <button class="view-btn" onclick="openLightbox(this)">
+                                <i class="fa fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Academic Images -->
+            <div class="gallery-item" data-category="academics">
+                <div class="gallery-image-container image-overlay-effect">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                         alt="Academic Excellence" 
+                         class="gallery-image hover-lift" 
+                         data-full-src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h4>Academic Excellence</h4>
+                            <p>Quality education and learning</p>
+                            <button class="view-btn" onclick="openLightbox(this)">
+                                <i class="fa fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- More images can be added here -->
+            <div class="gallery-item" data-category="campus">
+                <div class="gallery-image-container image-overlay-effect">
+                    <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                         alt="Library" 
+                         class="gallery-image hover-lift" 
+                         data-full-src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h4>Library</h4>
+                            <p>Knowledge hub for students</p>
+                            <button class="view-btn" onclick="openLightbox(this)">
+                                <i class="fa fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-item" data-category="sports">
+                <div class="gallery-image-container image-overlay-effect">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" 
+                         alt="Sports Ground" 
+                         class="gallery-image hover-lift" 
+                         data-full-src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h4>Sports Ground</h4>
+                            <p>Professional sports facilities</p>
+                            <button class="view-btn" onclick="openLightbox(this)">
+                                <i class="fa fa-expand"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Load More Button -->
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <button class="load-more-btn morph-button">
+                    <i class="fa fa-refresh"></i> Load More Images
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div id="lightbox" class="lightbox">
+    <div class="lightbox-content">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="">
+        <div class="lightbox-info">
+            <h3 id="lightbox-title"></h3>
+            <p id="lightbox-description"></p>
+        </div>
+        <div class="lightbox-nav">
+            <button class="lightbox-prev"><i class="fa fa-chevron-left"></i></button>
+            <button class="lightbox-next"><i class="fa fa-chevron-right"></i></button>
+        </div>
+    </div>
+</div>
+
+<style>
+/* Modern Gallery Styles */
+.modern-gallery {
+    background: #f8f9fa;
+}
+
+.gallery-filter {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    background: white;
+    border: 2px solid #003264;
+    color: #003264;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #003264;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.gallery-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+    transition: all 0.3s ease;
+}
+
+.gallery-item.hidden {
+    display: none;
+}
+
+.gallery-image-container {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-image-container:hover .gallery-image {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 50, 100, 0.8), rgba(244, 196, 48, 0.8));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-image-container:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.overlay-content {
+    text-align: center;
+    color: white;
+    padding: 1rem;
+}
+
+.overlay-content h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.overlay-content p {
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.view-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.view-btn:hover {
+    background: white;
+    color: #003264;
+    transform: scale(1.1);
+}
+
+.load-more-btn {
+    background: #003264;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.load-more-btn:hover {
+    background: #F4C430;
+    color: #003264;
+    transform: translateY(-2px);
+}
+
+/* Lightbox Styles */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.lightbox-close:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+#lightbox-img {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+}
+
+.lightbox-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.lightbox-info h3 {
+    color: #003264;
+    margin-bottom: 0.5rem;
+}
+
+.lightbox-info p {
+    color: #666;
+    margin: 0;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    pointer-events: none;
+}
+
+.lightbox-nav button {
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    pointer-events: auto;
+}
+
+.lightbox-nav button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gallery-item:nth-child(1) { animation-delay: 0.1s; }
+.gallery-item:nth-child(2) { animation-delay: 0.2s; }
+.gallery-item:nth-child(3) { animation-delay: 0.3s; }
+.gallery-item:nth-child(4) { animation-delay: 0.4s; }
+.gallery-item:nth-child(5) { animation-delay: 0.5s; }
+.gallery-item:nth-child(6) { animation-delay: 0.6s; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .gallery-filter {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .filter-btn {
+        width: 150px;
+    }
+    
+    .lightbox-content {
+        max-width: 95%;
+        max-height: 95%;
+    }
+    
+    .lightbox-nav {
+        padding: 0 10px;
+    }
+}
+</style>
+
+<script>
+// Gallery Filter Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-filter');
+            
+            galleryItems.forEach(item => {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    item.classList.remove('hidden');
+                    item.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        });
+    });
+    
+    // Load More Button
+    const loadMoreBtn = document.querySelector('.load-more-btn');
+    loadMoreBtn.addEventListener('click', function() {
+        // Simulate loading more images
+        this.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Loading...';
+        
+        setTimeout(() => {
+            this.innerHTML = '<i class="fa fa-refresh"></i> Load More Images';
+            // Add more gallery items here
+        }, 2000);
+    });
+});
+
+// Lightbox Functionality
+function openLightbox(btn) {
+    const container = btn.closest('.gallery-image-container');
+    const img = container.querySelector('.gallery-image');
+    const title = container.querySelector('.overlay-content h4').textContent;
+    const description = container.querySelector('.overlay-content p').textContent;
+    
+    document.getElementById('lightbox-img').src = img.getAttribute('data-full-src');
+    document.getElementById('lightbox-title').textContent = title;
+    document.getElementById('lightbox-description').textContent = description;
+    
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// Close lightbox
+document.querySelector('.lightbox-close').addEventListener('click', function() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = 'auto';
+});
+
+// Close lightbox when clicking outside
+document.getElementById('lightbox').addEventListener('click', function(e) {
+    if (e.target === this) {
+        this.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+});
+</script>

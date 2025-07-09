@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://kapadiahighschool.com/sitemap.xml
+Sitemap: https://test-p769.onrender.com/sitemap.xml
 
 # Disallow admin pages
 Disallow: /admin/

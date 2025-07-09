@@ -1,0 +1,47 @@
+services:
+  web:
+    build: .
+    entrypoint: /app/entrypoint.sh
+    command: gunicorn --bind 0.0.0.0:8000 --workers 3 --timeout 120 kapadiaschool.wsgi:application
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=True
+      - SECRET_KEY=tq@utn_w_v#bi@3^3$^b%v!75c=e3wbl%^4prca!(r)2mdevyx
+      - DATABASE_URL=postgres://postgres:password@host.docker.internal:5432/postgres?sslmode=prefer
+      - VPS_SERVER_IP=127.0.0.1
+    volumes:
+      - static_volume:/app/staticfiles
+      - media_volume:/app/gallery
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - db
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.docker.conf:/etc/nginx/nginx.conf:ro
+      - static_volume:/app/staticfiles
+      - media_volume:/app/gallery
+    depends_on:
+      - web
+
+  db:
+    image: postgres:15.3
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+
+
+volumes:
+  pgdata:
+  static_volume:
+  media_volume:

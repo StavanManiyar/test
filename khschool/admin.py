@@ -1,6 +1,10 @@
 from django.contrib import admin
 from django.contrib.auth.models import User, Group
-from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.contrib.auth.admin import UserAdmin as BaseUserAdmin, GroupAdmin as BaseGroupAdmin
+from django.core.exceptions import PermissionDenied
+from django.contrib.admin.views.main import ChangeList
+from django.contrib import messages
+from django.http import HttpResponseForbidden
 from khschool.models import Celebration, CarouselImage, CelebrationPhoto, Gallery, GalleryImage, BranchPhoto
 from khschool.forms import CelebrationForm, CelebrationPhotoForm, CarouselImageForm, GalleryForm, GalleryImageForm, BranchPhotoForm
 
@@ -182,3 +186,77 @@ class BranchPhotoAdmin(admin.ModelAdmin):
             'classes': ('collapse',)
         })
     )
+
+# Security Enhancement: Custom User Admin with restrictions
+class SecureUserAdmin(BaseUserAdmin):
+    """Custom User Admin with security restrictions"""
+    
+    def get_queryset(self, request):
+        # Only superusers can see all users
+        if request.user.is_superuser:
+            return super().get_queryset(request)
+        # Regular staff can only see themselves
+        return User.objects.filter(id=request.user.id)
+    
+    def has_delete_permission(self, request, obj=None):
+        # Prevent deletion of users unless you're a superuser
+        if obj and obj.is_superuser:
+            return False  # Cannot delete superusers
+        return request.user.is_superuser
+    
+    def has_change_permission(self, request, obj=None):
+        # Users can only edit themselves unless they're superuser
+        if not request.user.is_superuser and obj and obj.id != request.user.id:
+            return False
+        return super().has_change_permission(request, obj)
+    
+    def has_add_permission(self, request):
+        # Only superusers can add users
+        return request.user.is_superuser
+    
+    def delete_model(self, request, obj):
+        # Add confirmation and logging for user deletion
+        if obj.is_superuser:
+            messages.error(request, "Cannot delete superuser accounts!")
+            return
+        
+        # Log the deletion
+        messages.warning(request, f"User '{obj.username}' has been deleted by {request.user.username}")
+        super().delete_model(request, obj)
+    
+    def get_form(self, request, obj=None, **kwargs):
+        # Restrict form fields for non-superusers
+        form = super().get_form(request, obj, **kwargs)
+        if not request.user.is_superuser:
+            # Remove dangerous fields from form
+            if 'is_superuser' in form.base_fields:
+                del form.base_fields['is_superuser']
+            if 'is_staff' in form.base_fields:
+                del form.base_fields['is_staff']
+            if 'user_permissions' in form.base_fields:
+                del form.base_fields['user_permissions']
+            if 'groups' in form.base_fields:
+                del form.base_fields['groups']
+        return form
+
+# Security Enhancement: Restrict Group Admin
+class SecureGroupAdmin(BaseGroupAdmin):
+    """Custom Group Admin with security restrictions"""
+    
+    def has_add_permission(self, request):
+        # Only superusers can add groups
+        return request.user.is_superuser
+    
+    def has_delete_permission(self, request, obj=None):
+        # Only superusers can delete groups
+        return request.user.is_superuser
+    
+    def has_change_permission(self, request, obj=None):
+        # Only superusers can change groups
+        return request.user.is_superuser
+
+# Unregister default admin classes and register secure ones
+admin.site.unregister(User)
+admin.site.unregister(Group)
+admin.site.register(User, SecureUserAdmin)
+admin.site.register(Group, SecureGroupAdmin)

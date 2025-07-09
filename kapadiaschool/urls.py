@@ -18,16 +18,20 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
+import os
 
+# Generate a secure admin URL from environment variable or use a default secure one
+ADMIN_URL = os.environ.get('ADMIN_URL', 'khs-secure-admin-2024/')
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path(ADMIN_URL, admin.site.urls),  # Secure admin URL
     path('', include('khschool.urls')),
 ]
 
-#to get images from the database
-urlpatterns+=static(settings.MEDIA_URL,
-                    document_root=settings.MEDIA_ROOT)
+# Serve media files during development
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 #admin portal text
 admin.site.site_header = "Kapadia High School"
