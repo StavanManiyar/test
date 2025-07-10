@@ -1,0 +1,112 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    entrypoint: /app/entrypoint.sh
+    # Optimized for Hostinger single core - reduced workers
+    command: gunicorn --bind 0.0.0.0:8000 --workers 2 --threads 4 --timeout 120 --max-requests 1000 --max-requests-jitter 100 kapadiaschool.wsgi:application
+    environment:
+      - DEBUG=False
+      - SECRET_KEY=${SECRET_KEY}
+      - DATABASE_URL=postgres://postgres:${DB_PASSWORD}@db:5432/postgres
+      - ALLOWED_HOSTS=${DOMAIN_NAME},www.${DOMAIN_NAME}
+      - ADMIN_URL=${ADMIN_URL:-admin/}
+      - SECURE_SSL_REDIRECT=True
+      - SECURE_HSTS_SECONDS=31536000
+      - SECURE_HSTS_INCLUDE_SUBDOMAINS=True
+      - SESSION_COOKIE_SECURE=True
+      - CSRF_COOKIE_SECURE=True
+      # Email settings
+      - EMAIL_HOST=${EMAIL_HOST:-smtp.gmail.com}
+      - EMAIL_PORT=${EMAIL_PORT:-587}
+      - EMAIL_USE_TLS=${EMAIL_USE_TLS:-True}
+      - EMAIL_HOST_USER=${EMAIL_HOST_USER}
+      - EMAIL_HOST_PASSWORD=${EMAIL_HOST_PASSWORD}
+    volumes:
+      - static_volume:/app/staticfiles
+      - media_volume:/app/gallery
+      - ./logs:/app/logs
+    depends_on:
+      - db
+      - redis
+    restart: unless-stopped
+    # Resource limits for Hostinger VPS
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 512M
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.hostinger.conf:/etc/nginx/nginx.conf:ro
+      - static_volume:/app/staticfiles
+      - media_volume:/app/gallery
+      - ./ssl:/etc/nginx/ssl:ro
+      - /var/www/certbot:/var/www/certbot:ro
+    depends_on:
+      - web
+    restart: unless-stopped
+    # Light resource usage for nginx
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+        reservations:
+          memory: 128M
+
+  db:
+    image: postgres:15.3-alpine
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      # Optimized for 4GB RAM system
+      - POSTGRES_INITDB_ARGS=--auth-host=md5
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db-backup:/backup
+      - ./postgresql.conf:/etc/postgresql/postgresql.conf:ro
+    restart: unless-stopped
+    # Database resource allocation
+    deploy:
+      resources:
+        limits:
+          memory: 1.5G
+        reservations:
+          memory: 512M
+    command: postgres -c config_file=/etc/postgresql/postgresql.conf
+
+  # Redis for caching - lightweight setup
+  redis:
+    image: redis:alpine
+    command: redis-server --maxmemory 256mb --maxmemory-policy allkeys-lru --save 900 1 --save 300 10
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+        reservations:
+          memory: 128M
+
+  # Certbot for SSL certificates
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./ssl:/etc/letsencrypt
+      - /var/www/certbot:/var/www/certbot
+    command: echo "Certbot ready for SSL certificate generation"
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:
+  redis_data:

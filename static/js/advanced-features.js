@@ -104,12 +104,19 @@ document.addEventListener('DOMContentLoaded', function() {
         imageObserver.observe(img);
     });
     
-    // 6. Testimonial Slider with Auto-play
+    // 6. Testimonial Slider with Auto-play (only for non-carousel testimonials)
     const testimonialSlider = document.querySelector('.testimonial-slider');
-    if (testimonialSlider) {
+    if (testimonialSlider && !document.querySelector('#homeCarousel')) {
+        // Only initialize if there's no home carousel on the page
         let currentSlide = 0;
         const slides = testimonialSlider.querySelectorAll('.testimonial-slide');
         const totalSlides = slides.length;
+        
+        // Check if already initialized
+        if (testimonialSlider.hasAttribute('data-slider-initialized')) {
+            return;
+        }
+        testimonialSlider.setAttribute('data-slider-initialized', 'true');
         
         function showSlide(index) {
             slides.forEach((slide, i) => {
@@ -122,8 +129,10 @@ document.addEventListener('DOMContentLoaded', function() {
             showSlide(currentSlide);
         }
         
-        // Auto-play testimonials
-        setInterval(nextSlide, 5000);
+        // Auto-play testimonials (only if totalSlides > 1)
+        if (totalSlides > 1) {
+            setInterval(nextSlide, 5000);
+        }
         
         // Manual navigation
         const prevBtn = testimonialSlider.querySelector('.prev-btn');

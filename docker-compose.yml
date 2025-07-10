@@ -10,6 +10,7 @@ services:
       - SECRET_KEY=tq@utn_w_v#bi@3^3$^b%v!75c=e3wbl%^4prca!(r)2mdevyx
       - DATABASE_URL=postgres://postgres:password@host.docker.internal:5432/postgres?sslmode=prefer
       - VPS_SERVER_IP=127.0.0.1
+      - ADMIN_URL=admin/
     volumes:
       - static_volume:/app/staticfiles
       - media_volume:/app/gallery

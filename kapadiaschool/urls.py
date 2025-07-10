@@ -23,10 +23,14 @@ import os
 # Generate a secure admin URL from environment variable or use a default secure one
 ADMIN_URL = os.environ.get('ADMIN_URL', 'khs-secure-admin-2024/')
 
-urlpatterns = [
-    path(ADMIN_URL, admin.site.urls),  # Secure admin URL
-    path('', include('khschool.urls')),
-]
+# Build URL patterns based on whether ADMIN_URL is different from 'admin/'
+urlpatterns = []
+
+# Add the admin URL (either secure or standard, but not both)
+urlpatterns.append(path(ADMIN_URL, admin.site.urls))
+
+# Add the main app URLs
+urlpatterns.append(path('', include('khschool.urls')))
 
 # Serve media files during development
 if settings.DEBUG:

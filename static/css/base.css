@@ -3,26 +3,74 @@
   box-sizing: border-box;
 }
 
+/* Fix for double scrollbar issue */
+/* Ensure consistent scrollbar behavior across all browsers */
+:root {
+  --scrollbar-width: 8px;
+  --scrollbar-track: #f1f1f1;
+  --scrollbar-thumb: #888;
+  --scrollbar-thumb-hover: #555;
+}
+
+/* Webkit scrollbar styling */
+::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Firefox scrollbar styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
 html {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
-  overflow-y: auto;
   overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #f4f4f9;
   position: relative;
   overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Container overflow fix */
+.container,
+.container-fluid {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Main content overflow fix */
+main {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 .gallery img {
   max-width: 100%;
@@ -65,7 +113,7 @@ h4,
 
 /* Base Carousel Styles - specific styling in carousel.css */
 /* These styles are overridden by carousel.css for the homepage carousel */
-.carousel-container:not(#homeCarousel .carousel-container) {
+.carousel-container:not(#home-carousel-container) {
   width: 100%;
   position: relative;
 }
@@ -80,8 +128,9 @@ h4,
   animation: fadeIn 2s ease-in-out;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
+/* Only apply to non-home carousel controls */
+.carousel-control-prev-icon:not(#homeCarousel .carousel-control-prev-icon),
+.carousel-control-next-icon:not(#homeCarousel .carousel-control-next-icon) {
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 50%;
   padding: 10px;

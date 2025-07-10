@@ -7,7 +7,56 @@
   padding: 0; /* Remove any padding */
   overflow: hidden; /* Hide any overflow */
   max-width: 100vw; /* Prevent exceeding viewport width */
-  display: block; /* Ensure block display */
+  display: block !important; /* Force block display */
+  visibility: visible !important; /* Force visibility */
+  opacity: 1 !important; /* Force opacity */
+  height: auto !important; /* Ensure height */
+  min-height: 500px; /* Minimum height */
+  z-index: 1 !important; /* Lower z-index than navbar */
+  margin-top: 0; /* Ensure no top margin that could cause overlap */
+}
+
+/* Prevent multiple carousels from appearing - but be more specific */
+.carousel-container:not(#home-carousel-container) {
+  display: none !important;
+}
+
+/* Ensure only one carousel is visible at a time */
+body.home-page .testimonial-slider {
+  display: none !important;
+}
+
+/* Hide duplicate bootstrap carousel elements - but ensure we don't hide the main one */
+.carousel:not(#homeCarousel):not(.carousel-fade) {
+  display: none !important;
+}
+
+/* Ensure only one set of carousel indicators */
+.carousel-indicators:not(#homeCarousel .carousel-indicators) {
+  display: none !important;
+}
+
+/* Additional safeguards to prevent double carousel */
+.carousel-inner:not(#homeCarousel .carousel-inner) {
+  display: none !important;
+}
+
+/* Ensure only home carousel controls are visible */
+.carousel-control-prev:not(#homeCarousel .carousel-control-prev),
+.carousel-control-next:not(#homeCarousel .carousel-control-next) {
+  display: none !important;
+}
+
+/* Prevent duplicate carousel initialization */
+#homeCarousel[data-carousel-initialized] {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Show carousel during initialization - remove opacity issue */
+#homeCarousel:not([data-carousel-initialized]) {
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
 /* Carousel Animation */
@@ -50,7 +99,7 @@
   padding: 0 !important;
   /* Improve image loading appearance */
   transition: opacity 0.3s ease-in;
-  opacity: 0.9; /* Start slightly transparent and fade in when fully loaded */
+  opacity: 1; /* Make sure images are fully visible */
   background-color: #003264; /* Match container background */
 }
 

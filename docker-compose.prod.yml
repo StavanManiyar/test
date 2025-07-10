@@ -1,0 +1,60 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    entrypoint: /app/entrypoint.sh
+    command: gunicorn --bind 0.0.0.0:8000 --workers 3 --timeout 120 kapadiaschool.wsgi:application
+    environment:
+      - DEBUG=False
+      - SECRET_KEY=${SECRET_KEY}
+      - DATABASE_URL=postgres://postgres:${DB_PASSWORD}@db:5432/postgres
+      - ALLOWED_HOSTS=${DOMAIN_NAME},www.${DOMAIN_NAME}
+      - ADMIN_URL=${ADMIN_URL:-admin/}
+      - SECURE_SSL_REDIRECT=True
+      - SECURE_HSTS_SECONDS=31536000
+      - SECURE_HSTS_INCLUDE_SUBDOMAINS=True
+      - SESSION_COOKIE_SECURE=True
+      - CSRF_COOKIE_SECURE=True
+    volumes:
+      - static_volume:/app/staticfiles
+      - media_volume:/app/gallery
+      - ./logs:/app/logs
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.prod.conf:/etc/nginx/nginx.conf:ro
+      - static_volume:/app/staticfiles
+      - media_volume:/app/gallery
+      - ./ssl:/etc/nginx/ssl:ro  # SSL certificates
+    depends_on:
+      - web
+    restart: unless-stopped
+
+  db:
+    image: postgres:15.3
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db-backup:/backup
+    restart: unless-stopped
+
+  # Optional: Redis for caching
+  redis:
+    image: redis:alpine
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:

@@ -94,10 +94,46 @@
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  // Wait for all DOM and Bootstrap to be loaded
+  window.addEventListener('load', function() {
+    // Ensure we only run once
+    if (window.carouselInitialized) {
+      return;
+    }
+    window.carouselInitialized = true;
+    
+    // Only initialize if this is the home carousel and it exists
+    var homeCarousel = document.querySelector('#homeCarousel');
+    if (!homeCarousel) {
+      return; // Exit if carousel doesn't exist
+    }
+    
+    // Check if carousel is already initialized to prevent double initialization
+    if (homeCarousel.hasAttribute('data-carousel-initialized')) {
+      return;
+    }
+    
+    // Mark as initialized
+    homeCarousel.setAttribute('data-carousel-initialized', 'true');
+    
+    // Add home-page class to body to help with CSS targeting
+    document.body.classList.add('home-page');
+    
+    // Hide any other carousels that might exist
+    var otherCarousels = document.querySelectorAll('.carousel:not(#homeCarousel)');
+    otherCarousels.forEach(function(carousel) {
+      carousel.style.display = 'none';
+    });
+    
+    // Hide duplicate indicators
+    var otherIndicators = document.querySelectorAll('.carousel-indicators:not(#homeCarousel .carousel-indicators)');
+    otherIndicators.forEach(function(indicator) {
+      indicator.style.display = 'none';
+    });
+    
     // Preload all carousel images to prevent delayed loading
     function preloadCarouselImages() {
-      var carouselImages = document.querySelectorAll('.carousel-image');
+      var carouselImages = document.querySelectorAll('#homeCarousel .carousel-image');
       var preloadDiv = document.createElement('div');
       preloadDiv.className = 'preload-carousel-images';
       document.body.appendChild(preloadDiv);
@@ -115,17 +151,29 @@
     // Call preload function
     preloadCarouselImages();
     
-    // Initialize carousel with proper options
-    var carousel = document.querySelector('#homeCarousel');
-    var carouselInstance = new bootstrap.Carousel(carousel, {
-      interval: 5000,  // Auto-slide every 5 seconds
-      wrap: true,       // Loop back to first slide
-      keyboard: true,   // Allow keyboard navigation
-      pause: false      // Don't pause on hover
-    });
+    // Wait for Bootstrap to be available and ensure single instance
+    if (typeof bootstrap !== 'undefined') {
+      // Dispose of any existing carousel instances
+      try {
+        var existingInstance = bootstrap.Carousel.getInstance(homeCarousel);
+        if (existingInstance) {
+          existingInstance.dispose();
+        }
+      } catch (e) {
+        // Ignore if no existing instance
+      }
+      
+      // Initialize carousel with proper options
+      var carouselInstance = new bootstrap.Carousel(homeCarousel, {
+        interval: 5000,  // Auto-slide every 5 seconds
+        wrap: true,       // Loop back to first slide
+        keyboard: true,   // Allow keyboard navigation
+        pause: false      // Don't pause on hover
+      });
+    }
     
-    // Fix for Supabase images
-    var carouselImages = document.querySelectorAll('.carousel-image');
+    // Fix for Supabase images - only target images in the home carousel
+    var carouselImages = document.querySelectorAll('#homeCarousel .carousel-image');
     carouselImages.forEach(function(img) {
       // Add loading="eager" to prioritize loading
       img.setAttribute('loading', 'eager');
