@@ -12,8 +12,12 @@
   opacity: 1 !important; /* Force opacity */
   height: auto !important; /* Ensure height */
   min-height: 500px; /* Minimum height */
-  z-index: 1 !important; /* Lower z-index than navbar */
+  z-index: 1 !important; /* Much lower z-index than navbar */
   margin-top: 0; /* Ensure no top margin that could cause overlap */
+  clear: both; /* Clear any floating elements */
+  top: 0; /* Explicitly position */
+  left: 0;
+  right: 0;
 }
 
 /* Prevent multiple carousels from appearing - but be more specific */

@@ -3,8 +3,8 @@
 <link href="{% static 'css/header.css' %}" rel='stylesheet' type='text/css'>
 <!-- Navbar with logo in same line -->
 <div class="navbar-wrapper">
-<div class="container-fluid p-0">
-  <nav class="navbar navbar-expand-lg py-2 px-lg-5">
+<div class="container">
+  <nav class="navbar navbar-expand-lg py-2 px-3">
     <a href="{% url 'home' %}" class="navbar-brand me-4 logo-container">
       <img src="{% static 'image/khs2.svg' %}" alt="Kapadia High School" class="header-logo" oncontextmenu="return false;">
     </a>
@@ -93,5 +93,7 @@
       }
     });
   });
+  
+  // Bootstrap dropdowns are handled by navbar-fix.js
 </script>
 </div>

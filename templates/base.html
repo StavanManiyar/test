@@ -39,6 +39,7 @@
 
 <body>
   {% include 'header.html' %}
+  
   {% block carousel %}
   {% endblock carousel %}
 
@@ -57,6 +58,9 @@
   
   <!-- Scrollbar Fix - load immediately to prevent double scrollbar -->
   <script src="{% static 'js/scrollbar-fix.js' %}"></script>
+  
+  <!-- Navbar Fix - load immediately to prevent dropdown issues -->
+  <script src="{% static 'js/navbar-fix.js' %}"></script>
   
   <!-- Page-specific JavaScript -->
   {% block page_js %}

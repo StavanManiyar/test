@@ -14,8 +14,9 @@
 </head>
 <body>
     <!-- Test Navbar -->
-    <div class="container-fluid p-0">
-        <nav class="navbar navbar-expand-lg py-2 px-lg-5">
+    <div class="navbar-wrapper">
+        <div class="container-fluid p-0">
+            <nav class="navbar navbar-expand-lg py-2 px-lg-5">
             <a href="#" class="navbar-brand me-4 logo-container">
                 <img src="static/image/khs2.svg" alt="Kapadia High School" class="header-logo">
             </a>
@@ -35,6 +36,35 @@
                             <a class="dropdown-item" href="#">About-us</a>
                             <a class="dropdown-item" href="#">Institutional Goals</a>
                             <a class="dropdown-item" href="#">Executive Brief</a>
+                            <a class="dropdown-item" href="#">Our Team</a>
+                            <a class="dropdown-item" href="#">Success Stories</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="schoolDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Our premises</a>
+                        <div class="dropdown-menu" aria-labelledby="schoolDropdown">
+                            <a class="dropdown-item" href="#">Chandkheda</a>
+                            <a class="dropdown-item" href="#">Chhatral</a>
+                            <a class="dropdown-item" href="#">IFFCO Township</a>
+                            <a class="dropdown-item" href="#">Kadi</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="developDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Development</a>
+                        <div class="dropdown-menu" aria-labelledby="developDropdown">
+                            <a class="dropdown-item" href="#">Activities</a>
+                            <a class="dropdown-item" href="#">Blog</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="studentDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">Student Showcase</a>
+                        <div class="dropdown-menu" aria-labelledby="studentDropdown">
+                            <a class="dropdown-item" href="#">Gallery</a>
+                            <a class="dropdown-item" href="#">Achievements</a>
+                            <a class="dropdown-item" href="#">Other than Academics</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -43,7 +73,8 @@
                 </ul>
                 <a href="#" class="btn btn-primary px-4 py-2 d-none d-lg-block admission-btn">Admission Open</a>
             </div>
-        </nav>
+            </nav>
+        </div>
     </div>
 
     <!-- Test Content -->
@@ -61,6 +92,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
     <script src="static/js/scrollbar-fix.js"></script>
+    <script src="static/js/navbar-fix.js"></script>
 </body>
-</html>
 </html>

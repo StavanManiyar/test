@@ -32,8 +32,12 @@
 .navbar {
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   background-color: #003264;
-  padding: 0.8rem 1rem; /* Increased padding for larger logo */
+  padding: 0.8rem 0; /* Remove horizontal padding as it's handled by container */
   min-height: 140px; /* Increased minimum height to accommodate the larger logo */
+  border-radius: 0; /* Ensure no border radius */
+  overflow: visible !important;
+  position: relative !important;
+  width: 100% !important;
 }
 
 /* Responsive adjustments for the logo */
@@ -81,23 +85,61 @@
 
 .dropdown-menu {
   border: none;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  background-color: #fff;
-  border-radius: 8px;
-  padding: 10px 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 12px 0;
+  z-index: 99999 !important;
+  position: absolute !important;
+  display: none;
+  min-width: 200px;
+  max-width: 250px;
+  margin-top: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  top: 100% !important;
+  left: 0 !important;
+  right: auto !important;
+  transform: translateY(0) !important;
+  will-change: transform, opacity;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.dropdown-menu.show {
+  display: block !important;
+  z-index: 9999 !important;
+  animation: dropdownFadeIn 0.3s ease-out;
 }
 
 .dropdown-item {
-  padding: 8px 20px;
+  padding: 10px 20px;
   color: #374151;
-  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  background: none;
+  transition: all 0.2s ease;
+  display: block;
+  width: 100%;
+  text-align: left;
+  line-height: 1.5;
+  margin: 0 6px;
+  border-radius: 6px;
 }
 
 .dropdown-item:hover, 
 .dropdown-item:focus {
-  background-color: #f0f4f8;
+  background-color: #f3f4f6;
+  color: #1f2937;
+  text-decoration: none;
+  transform: none;
+  border-left: none;
+}
+
+.dropdown-item:active {
+  background-color: #e2e8f0;
   color: #003264;
-  transform: translateX(5px);
 }
 
 .dropdown-toggle::after {
@@ -122,10 +164,18 @@
 
 /* Navbar wrapper to ensure proper positioning */
 .navbar-wrapper {
-  position: static !important;
-  z-index: 1050 !important;
+  position: relative !important;
+  z-index: 9999 !important;
   width: 100%;
   background-color: #003264;
+  margin: 0;
+  padding: 0;
+  overflow: visible !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: auto;
+  height: auto;
 }
 
 /* Navbar styling - make sure it's visible */
@@ -140,20 +190,36 @@
   top: 0 !important;
   left: 0;
   right: 0;
-  z-index: 1050 !important;
+  z-index: 9999 !important;
   width: 100%;
+  margin: 0;
+  border: none;
 }
 
 /* Ensure navbar container has proper z-index */
 .container-fluid:has(.navbar) {
-  z-index: 1050 !important;
+  z-index: 9999 !important;
   position: relative;
+  overflow: visible !important;
 }
 
 /* Alternative selector for older browsers */
 .navbar-container {
-  z-index: 1050 !important;
+  z-index: 9999 !important;
   position: relative;
+  overflow: visible !important;
+}
+
+/* Ensure navbar collapse doesn't hide dropdowns */
+.navbar-collapse {
+  overflow: visible !important;
+  position: static !important;
+}
+
+/* Ensure navbar nav doesn't hide dropdowns */
+.navbar-nav {
+  overflow: visible !important;
+  position: static !important;
 }
 
 /* Navbar toggler for mobile */
@@ -171,10 +237,29 @@
   color: #fff;
 }
 
+/* Dropdown positioning and z-index fixes */
+.nav-item.dropdown {
+  position: relative;
+}
+
+.navbar .dropdown-menu {
+  top: 100% !important;
+  left: 0 !important;
+  right: auto !important;
+  margin-top: 0 !important;
+  min-width: 200px;
+  max-width: 250px;
+  transform: translateY(0) !important;
+  will-change: transform, opacity;
+  overflow: hidden !important;
+  white-space: nowrap;
+}
+
 /* Dropdown show/hide styling for JavaScript enhancement */
 .dropdown-menu.show {
   animation: fadeIn 0.3s ease;
   transform-origin: top center;
+  z-index: 2000 !important;
 }
 
 @keyframes fadeIn {
@@ -188,6 +273,154 @@
   }
 }
 
+@keyframes dropdownFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Prevent any content from covering dropdowns */
+.dropdown-menu {
+  position: absolute !important;
+  inset: auto !important;
+  margin: 0px !important;
+  transform: none !important;
+  top: 100% !important;
+  left: 0 !important;
+  right: auto !important;
+}
+
+/* Ensure dropdowns are always on top */
+.navbar .dropdown:hover .dropdown-menu,
+.navbar .dropdown .dropdown-menu:hover,
+.navbar .dropdown .dropdown-menu.show {
+  display: block !important;
+  z-index: 9999 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+/* Fix for any potential conflicts with other components */
+.main-content,
+.carousel-container,
+.content-wrapper,
+main,
+#home-carousel-container {
+  z-index: 1 !important;
+  position: relative;
+}
+
+/* Ensure dropdown doesn't get cut off */
+.navbar-wrapper,
+.navbar-container,
+.container-fluid:has(.navbar),
+.container:has(.navbar) {
+  overflow: visible !important;
+  height: auto !important;
+  min-height: auto !important;
+  max-height: none !important;
+}
+
+/* Prevent scrollbar on dropdown hover */
+.navbar-wrapper:hover,
+.navbar-container:hover,
+.navbar:hover,
+.navbar-collapse:hover {
+  overflow: visible !important;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+}
+
+/* Specifically prevent scrollbar on Our premises and other dropdowns */
+.nav-item.dropdown:hover,
+.dropdown-menu:hover {
+  overflow: visible !important;
+}
+
+/* Ensure navbar itself never shows scrollbars */
+.navbar,
+.navbar *,
+.navbar-wrapper,
+.navbar-wrapper *,
+.container:has(.navbar),
+.container-fluid:has(.navbar) {
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE and Edge */
+}
+
+/* Hide scrollbars in webkit browsers */
+.navbar::-webkit-scrollbar,
+.navbar *::-webkit-scrollbar,
+.navbar-wrapper::-webkit-scrollbar,
+.navbar-wrapper *::-webkit-scrollbar,
+.container:has(.navbar)::-webkit-scrollbar,
+.container-fluid:has(.navbar)::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Prevent dropdown from overflowing viewport */
+.nav-item.dropdown:last-child .dropdown-menu,
+.nav-item.dropdown:nth-last-child(2) .dropdown-menu {
+  left: auto !important;
+  right: 0 !important;
+}
+
+/* Alternative approach for right-aligned dropdowns */
+@media (min-width: 992px) {
+  .navbar-nav .nav-item:nth-last-child(-n+2) .dropdown-menu {
+    left: auto !important;
+    right: 0 !important;
+  }
+  
+  /* Specifically target Contact Us and Student Showcase dropdowns */
+  .navbar-nav .nav-item:nth-last-child(1) .dropdown-menu,
+  .navbar-nav .nav-item:nth-last-child(2) .dropdown-menu {
+    left: auto !important;
+    right: 0 !important;
+    transform: translateX(0) !important;
+  }
+}
+
+/* Force right alignment for dropdowns that would overflow */
+.dropdown-menu[data-position="right"] {
+  left: auto !important;
+  right: 0 !important;
+}
+
+/* Ensure carousel stays behind navbar */
+.carousel,
+.carousel-inner,
+.carousel-item {
+  z-index: 1 !important;
+  position: relative;
+}
+
+/* Special handling for home page with carousel */
+body.home-page .navbar-wrapper {
+  position: relative !important;
+  z-index: 1050 !important;
+}
+
+body.home-page .dropdown-menu {
+  z-index: 9999 !important;
+  position: absolute !important;
+}
+
+body.home-page #home-carousel-container {
+  z-index: 1 !important;
+  position: relative !important;
+}
+
 /* Responsive adjustments */
 @media (max-width: 992px) {
   .navbar-collapse {
@@ -199,10 +432,16 @@
   .dropdown-menu {
     background-color: rgba(255, 255, 255, 0.05);
     border-radius: 4px;
+    position: static !important;
+    transform: none !important;
+    box-shadow: none;
+    border: none;
+    margin-top: 5px;
   }
   
   .dropdown-item {
     color: #fff;
+    padding: 8px 16px;
   }
   
   .dropdown-item:hover {
