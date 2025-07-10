@@ -150,8 +150,59 @@ function initializeDropdownFixes() {
         }
     }
     
+    // Mobile-specific fixes
+    function handleMobileNavbar() {
+        const isMobile = window.innerWidth <= 992;
+        
+        if (isMobile) {
+            // Mobile view - ensure dropdowns work with Bootstrap's native mobile behavior
+            dropdownMenus.forEach(menu => {
+                // Reset all positioning for mobile
+                menu.style.position = 'static';
+                menu.style.zIndex = 'auto';
+                menu.style.left = 'auto';
+                menu.style.right = 'auto';
+                menu.style.transform = 'none';
+                menu.style.width = 'calc(100% - 40px)';
+                menu.style.margin = '5px 0 10px 20px';
+                menu.style.float = 'none';
+                menu.style.clear = 'both';
+                
+                // Ensure proper display control
+                if (!menu.classList.contains('show')) {
+                    menu.style.display = 'none';
+                }
+            });
+            
+            // Ensure nav items are properly spaced
+            const navItems = document.querySelectorAll('.navbar-nav .nav-item');
+            navItems.forEach(item => {
+                item.style.clear = 'both';
+                item.style.width = '100%';
+                item.style.display = 'block';
+            });
+        } else {
+            // Desktop view - restore original positioning
+            dropdownMenus.forEach(menu => {
+                menu.style.margin = '';
+                menu.style.float = '';
+                menu.style.clear = '';
+            });
+            fixDropdownPosition();
+        }
+    }
+    
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        setTimeout(() => {
+            handleMobileNavbar();
+            fixDropdownPosition();
+        }, 100);
+    });
+    
     // Apply fixes on load
     setTimeout(() => {
+        handleMobileNavbar();
         fixDropdownPosition();
         preventOverlap();
     }, 100);

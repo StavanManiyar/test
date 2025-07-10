@@ -421,31 +421,87 @@ body.home-page #home-carousel-container {
   position: relative !important;
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for mobile */
 @media (max-width: 992px) {
   .navbar-collapse {
     background-color: #003264;
     padding: 15px;
     border-radius: 0 0 8px 8px;
+    overflow-y: auto !important; /* Allow scrolling if menu is too long */
   }
   
+  /* Mobile dropdown styling - fix overlapping */
   .dropdown-menu {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.1) !important;
     border-radius: 4px;
     position: static !important;
     transform: none !important;
-    box-shadow: none;
-    border: none;
-    margin-top: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 5px 0 10px 20px !important;
+    width: calc(100% - 40px) !important;
+    display: none !important; /* Hidden by default */
+    padding: 5px 0 !important;
+    clear: both !important;
+    float: none !important;
   }
   
+  /* Show dropdown when parent is expanded - Bootstrap handles this */
+  .nav-item.dropdown .dropdown-menu.show {
+    display: block !important;
+    position: static !important;
+  }
+  
+  /* Ensure nav items don't overlap - main nav items */
+  .navbar-nav .nav-item {
+    clear: both !important;
+    width: 100% !important;
+    display: block !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 0 !important;
+  }
+  
+  .navbar-nav .nav-item:last-child {
+    border-bottom: none;
+  }
+  
+  /* Mobile nav links styling */
+  .navbar-nav .nav-link {
+    padding: 12px 0 !important;
+    display: block !important;
+    width: 100% !important;
+  }
+  
+  /* Mobile dropdown items styling */
   .dropdown-item {
-    color: #fff;
-    padding: 8px 16px;
+    color: #fff !important;
+    padding: 8px 16px !important;
+    display: block !important;
+    width: 100% !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
   }
   
   .dropdown-item:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #ffcc00;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #ffcc00 !important;
+    padding-left: 20px !important;
+  }
+
+  /* Icon styling for toggler */
+  .navbar-toggler {
+    border: 2px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Mobile dropdown toggle arrow */
+  .dropdown-toggle::after {
+    color: #fff !important;
+    margin-left: auto;
+  }
+
+  /* Ensure mobile menu height control */
+  .navbar-collapse {
+    max-height: 70vh !important;
+    overflow-y: auto !important;
   }
 }
